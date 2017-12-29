@@ -6,6 +6,7 @@ require('dotenv').config()
 //Require files that hold functions/function managing files
 const Discord = require("discord.js"); // Discord.js library
 const launchDebug = require('./services/commands/launchDebug') //Startup Debug Functions
+const webserver = require('./services/webserver')
 
 // This is the client. This is what is referred to with 'client.something' or 'bot.something' but it could be anything.
 const client = new Discord.Client();
@@ -32,3 +33,12 @@ launchDebug.general(prefix, env, token);
 
 //Assuming it logs in to discord using provided token (defined in .env) when this is launched.
 client.login(token);
+
+//Unhandled Rejection
+process.on('unhandledRejection', err => console.log(`Uncaught Promise Error: \n${err.stack}`))
+
+// Gracefully shutdown on CTRL + C
+process.on('SIGINT', function () {
+    console.log(`Shutting down node...`)
+    process.exit(0)
+})
