@@ -9,9 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.2.1"
-  },
-  "devDependencies": {
+    "discord.js": "^11.2.1",
     "dotenv": "^4.0.0"
   }
 }
