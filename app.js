@@ -4,9 +4,10 @@
 require('dotenv').config()
 
 //Require files that hold functions/function managing files
-const Discord = require("discord.js"); // Discord.js library
-const launchDebug = require('./services/commands/launchDebug') //Startup Debug Functions
-const webserver = require('./services/webserver')
+const
+    Discord = require("discord.js"), // Discord.js library
+    launchConsole = require('./services/commands/launchConsole'), //Startup Debug Functions
+    webserver = require('./services/webserver')//Heroku webserver launch code
 
 // This is the client. This is what is referred to with 'client.something' or 'bot.something' but it could be anything.
 const client = new Discord.Client();
@@ -23,34 +24,34 @@ const prefix = env === 'live' ? '+' : '=' // ? '+' : '='  means that if env === 
 
 // This event triggers when the bot starts up.
 client.on("ready", () => {
-    launchDebug.discord();
+    launchConsole.discord(client);
 });
 
 //This event triggers when the bot joins a guild.
 client.on("guildCreate", guild => {
-	console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+    console.log(`I have joined: ${guild.name} (id: ${guild.id}).\n---`);
 });
 
 //This event triggers when the bot is removed from a guild.
 client.on("guildDelete", guild => {
-	console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+    console.log(`I have been removed from: ${guild.name} (id: ${guild.id}).\n---`);
 });
+
+
+
+
+
 
 // ---- GENERAL COMMANDS BEGIN HERE ---- //
 
 //Debug line to check if the code is running at all
-launchDebug.general(prefix, env, token);
+launchConsole.general(prefix, env);
 
 //Run webserver
 webserver();
 
-console.log(`app.js Check 1 Passed.`)
-
 //Assuming it logs in to discord using provided token (defined in .env) when this is launched.
 client.login(token);
-
-console.log(`app.js Check 2 Passed.`)
-
 
 // Gracefully shutdown on CTRL + C
 process.on('SIGINT', function () {
