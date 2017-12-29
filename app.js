@@ -37,10 +37,11 @@ webserver();
 //Assuming it logs in to discord using provided token (defined in .env) when this is launched.
 client.login(token);
 
-//Unhandled Rejection
-process.on('unhandledRejection', err => console.log(`Uncaught Promise Error: \n${err.stack}`))
 // Gracefully shutdown on CTRL + C
 process.on('SIGINT', function () {
     console.log(`Shutting down node...`)
     process.exit(0)
 })
+
+//Unhandled Rejection
+process.on('unhandledRejection', err => console.log(`Uncaught Promise Error: \n${err.stack}`))

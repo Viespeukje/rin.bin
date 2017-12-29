@@ -37,7 +37,7 @@ module.exports = () => {
     
     // 4. Server shutdown
     process.on('SIGTERM', function () {
-        console.log(`Shutting down webserver...`)
+        console.log(`Shutting down...`)
         server.close(function () {
             process.exit(0)
         })
