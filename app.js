@@ -21,9 +21,19 @@ const prefix = env === 'live' ? '+' : '=' // ? '+' : '='  means that if env === 
 
 // ---- LISTENER COMMANDS BEGIN HERE ---- //
 
-//Debug line that activates when the bot starts up.
+// This event triggers when the bot starts up.
 client.on("ready", () => {
     launchDebug.discord();
+});
+
+//This event triggers when the bot joins a guild.
+client.on("guildCreate", guild => {
+	console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+});
+
+//This event triggers when the bot is removed from a guild.
+client.on("guildDelete", guild => {
+	console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
 });
 
 // ---- GENERAL COMMANDS BEGIN HERE ---- //
@@ -34,8 +44,13 @@ launchDebug.general(prefix, env, token);
 //Run webserver
 webserver();
 
+console.log(`app.js Check 1 Passed.`)
+
 //Assuming it logs in to discord using provided token (defined in .env) when this is launched.
 client.login(token);
+
+console.log(`app.js Check 2 Passed.`)
+
 
 // Gracefully shutdown on CTRL + C
 process.on('SIGINT', function () {
