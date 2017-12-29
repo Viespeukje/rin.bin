@@ -1,26 +1,17 @@
 {
   "name": "rinbot_project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Rin's silly little discord bot!",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.2.1"
   },
-    "name": "rinbot_project",
-    "version": "1.0.0",
-    "description": "Rin's silly little discord bot!",
-    "main": "app.js",
-    "scripts": {
-      "start": "node app.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "discord.js": "^11.2.1"
-    }
+  "devDependencies": {
+    "dotenv": "^4.0.0"
   }
+}
