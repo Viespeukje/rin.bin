@@ -3,8 +3,12 @@
 //Require .env file
 require('dotenv').config()
 
-//Require other files that hold functions/function managing files
-const commandManager = require('./services/commandManager')
+//Require files that hold functions/function managing files
+const Discord = require("discord.js"); // Discord.js library
+const launchDebug = require('./services/commands/launchDebug') //Startup Debug Functions
+
+// This is the client. This is what is referred to with 'client.something' or 'bot.something' but it could be anything.
+const client = new Discord.Client();
 
 //Defines the constants expressed in .env file
 const token = process.env.TOKEN
@@ -12,12 +16,19 @@ const env = process.env.ENVIRONMENT
 const ownerid = process.env.OWNERID
 
 //Defines the prefix used for all commands.
-// ? '+' : '='  means that if env === 'live' then const prefix is set to '+' otherwise '='
-const prefix = env === 'live' ? '+' : '='
+const prefix = env === 'live' ? '+' : '=' // ? '+' : '='  means that if env === 'live' then const prefix is set to '+' otherwise '='
 
-// ---- COMMANDS BEGIN HERE ---- //
+// ---- LISTENER COMMANDS BEGIN HERE ---- //
 
-console.log(commandManager.finalOutput(1,2,3))
+//Debug line that activates when the bot starts up.
+client.on("ready", () => {
+    launchDebug.discord();
+});
 
-//Debug line for checking the defined constants from the the .env file
-console.log('---\nPrefix: ' + prefix + '\nToken: ' + token + '\nOwnerID: ' + ownerid + '\n---')
+// ---- GENERAL COMMANDS BEGIN HERE ---- //
+
+//Debug line to check if the code is running at all
+launchDebug.general(prefix, env, token);
+
+//Assuming it logs in to discord using provided token (defined in .env) when this is launched.
+client.login(token);
