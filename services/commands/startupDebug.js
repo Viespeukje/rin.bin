@@ -1,7 +1,7 @@
 'use strict'
 
 const general = function (prefix, env) {
-    console.log('---\nRin.bin is now up and running.\nMy current command prefix is \'' + prefix + '\'.\nMy ' + env + ' enviroment is currently active.\nPress Ctrl+C to terminate.\n---');
+    console.log(`---\nRin.bin is now up and running.\nMy current command prefix is '${prefix}'.\nMy ${env} enviroment is currently active.\nPress Ctrl+C to terminate.\n---`);
 }
 
 const discord = function (client) {

@@ -1,25 +1,44 @@
 'use strict'
 
-//Require other files that hold functions/function managing files
-// const addNumber = require('./commands/addNumber')
-// const addOne = require('./commands/addOne')
+const 
+    userHelp = require('./commands/userHelp'),
+    userGems = require('./commands/userGems'),
+    userWarn = require('./commands/userWarn')
 
-module.exports = (message, prefix, env) => {
+module.exports = (client, message, prefix, env) => {
    
-    // Ignore all messages sent by bots, including itself.
-    if(message.author.bot) return;
+    if(message.author.bot) return; //Any bot inputs below this line will be ignored.
         
-    // Ignore anything that does not start with the config.prefix prefix.
-    if(message.content.indexOf(prefix) !== 0) return;
+    if(message.content
+        .indexOf(prefix) !== 0) return; //Any inputs below this line that do not begin with the prefix will be ignored
 
-    // This set of commands breaks up the message into a collection "args"
-    // Slice takes the message content and cuts off the arguments corresponding to the length of the config.prefix
-    // Trim cleans up any and all spaces
-    // Split makes an array out of the string.
-    const args = message.content.slice(prefix.length).trim().split(/ +/g); 
+    const args = message.content     // This set of commands breaks up the message into a collection "args"
+        .slice(prefix.length)     // Slice takes the message content and cuts off the arguments corresponding to the length of the config.prefix
+        .trim()    // Trim cleans up any and all spaces
+        .split(/ +/g);    // Split makes an array out of the string.
 
-    // shift removes the first element of an array and then toLowerCase changes it to lower case.
-    const command = args.shift().toLowerCase();
+    const command = args // This set of commands defines command from args
+        .shift()    // Shift removes the first element from an array to be processed
+        .toLowerCase();    // toLowerCase() changes it to lower case
 
-    console.log('Environment: '+ env + '\nMessage: ' + message + '\nCommand: ' + command + '\nArguments: ' + args+ '\n---');
+
+    // ---- GENERAL COMMANDS BEGIN HERE ---- //
+
+    if(command === "help") {
+        userHelp(client, message, prefix);
+    }
+    if(command === "gems") {
+        userGems(client, message);
+    }
+    if(command === "warn") {
+        userWarn(client, message);
+    }
+
+
+
+
+
+    //Debug line to output all of the raw commands the bot takes in.
+   //console.log(`Environment: ${env}\nAuthor: ${message.author.username} (${message.author})\nMessage: ${message}\nCommand: ${command}\nArguments: ${args}\n---`);
+
 }
