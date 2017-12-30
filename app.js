@@ -6,7 +6,7 @@ require('dotenv').config()
 //Require files that hold functions/function managing files
 const
     Discord = require("discord.js"), // Discord.js library
-    messageManager = require('./services/messageManager'), //Run messageManager Functions
+    commandManager = require('./services/commandManager'), //Run commandManager Functions
     startupDebug = require('./services/commands/startupDebug'),
     guildChange = require('./services/commands/guildChange'), //Startup Debug Functions
     webserver = require('./services/webserver')//Heroku webserver launch code
@@ -42,7 +42,7 @@ client.on("guildDelete", guild => {
 
 //This event triggers when the bot recieves a message
 client.on("message", message => {
-    messageManager(client, message, prefix, env);
+    commandManager(client, message, prefix, env);
 });
 
 

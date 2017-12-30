@@ -1,13 +1,14 @@
 'use strict'
 
 const 
+    permsCheck = require('./permsCheck'),
     userHelp = require('./commands/userHelp'),
     userGems = require('./commands/userGems'),
     userSay = require('./commands/userSay'),
     userWarn = require('./commands/userWarn')
 
 module.exports = (client, message, prefix, env) => {
-   
+
     if(message.author.bot) return; //Any bot inputs below this line will be ignored.
         
     if(message.content

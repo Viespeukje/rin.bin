@@ -33,11 +33,7 @@ module.exports = (client, message, prefix) => {
         },
         {
             name: prefix + "say",
-            value: "This command will cause me to delete your message and repeat it myself. \n*Moderator permissions required.*\n"
-        },
-        {
-            name: prefix + "saycode",
-            value: "This command will cause me to delete your message and repeat it myself inside a codebox. \n*Moderator permissions required.*\n"
+            value: "This command will cause me to delete your message and repeat it myself. The command *saycode* will put the text in a codebox.\n*Moderator permissions required.*\n"
         }
         ],
         //timestamp: new Date(),
