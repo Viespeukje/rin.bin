@@ -9,6 +9,8 @@ const
 
 module.exports = (client, message, prefix, env) => {
 
+    permsCheck.isBot(message);
+ 
     if(message.author.bot) return; //Any bot inputs below this line will be ignored.
         
     if(message.content
