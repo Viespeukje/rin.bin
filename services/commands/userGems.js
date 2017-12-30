@@ -3,7 +3,7 @@
 module.exports = (client, message, prefix) => {
 
     //Rin's To-Do List
-    console.log('TO DO: Refine the way permissions are handled on the server.')
+    console.log('TO DO: Refine the way permissions are handled on the bot.')
     //Maybe have a little bit of dialogue that says something like "as a ROLE you are able to use the following commands..."
 
     message.delete().catch(O_o=>{});

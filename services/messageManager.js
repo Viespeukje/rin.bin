@@ -3,6 +3,7 @@
 const 
     userHelp = require('./commands/userHelp'),
     userGems = require('./commands/userGems'),
+    userSay = require('./commands/userSay'),
     userWarn = require('./commands/userWarn')
 
 module.exports = (client, message, prefix, env) => {
@@ -29,6 +30,12 @@ module.exports = (client, message, prefix, env) => {
     }
     if(command === "gems") {
         userGems(client, message);
+    }
+    if(command === "say") {
+        userSay.normal(message, args);
+    }
+    if(command === "saycode") {
+        userSay.codebox(message, args);
     }
     if(command === "warn") {
         userWarn(client, message);
