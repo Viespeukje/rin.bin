@@ -1,0 +1,22 @@
+{
+    "help": {
+      "name": "help",
+      "description": "This command will return a help dialogue that explains the commands avalible to that user with that user's permission level."
+    },
+    "say": {
+      "name": "say",
+      "description": "This command will cause me to delete your message and repeat it myself. The alternate command ``saycode`` will put the text in a codebox."
+    },
+    "gems": {
+      "name": "gems",
+      "description": "This command will cause me to post a primer on how gems on the server work."
+    },
+    "warn": {
+      "name": "warn",
+      "description": "This command is used to warn the first user mentioned after the command. If no users are mentioned, it will fail. If more than one user is mentioned, the link will be generated for the first one only."
+    },
+    "rolecheck": {
+      "name": "rolecheck",
+      "description": "This command is used to check the permissions of the first user mentioned after the command. If no users are mentioned, it will fail."
+    }
+}

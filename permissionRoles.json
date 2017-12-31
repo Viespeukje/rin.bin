@@ -1,0 +1,7 @@
+{
+  "permissionRoles": {
+    "admin": "Admin",
+    "mod": "Moderator",
+    "guide": "Guide"
+  }
+}
