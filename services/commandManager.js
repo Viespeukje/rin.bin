@@ -35,19 +35,10 @@ module.exports = (client, message, prefix, env) => {
         message.delete().catch(O_o=>{});
         userHelp(client, message, prefix);
     }
-
     if(command === "rolecheck") {
         message.delete().catch(O_o=>{});
         if (checkRoles.isStaff(message.member) == false) return;
-
-        //Yes, I know this looks awful. I'm too lazy to fix it right now.
-        console.log(`Role Debug output for user: ${message.author.username}.`)
-        console.log('BotOwner: ' + checkRoles.isBotOwner(message.member));  
-        console.log('Owner: ' + checkRoles.isOwner(message.member));  
-        console.log('Admin: ' + checkRoles.isAdmin(message.member));    
-        console.log('Moderator: ' + checkRoles.isMod(message.member));    
-        console.log('Staff: ' + checkRoles.isStaff(message.member));    
-        console.log('Guide: ' + checkRoles.isGuide(message.member));   
+        message.author.send(`Role Permissions Debug [${message.mentions.users.first().username}#${message.mentions.users.first().discriminator}]\nisBotOwner = ${checkRoles.isBotOwner(message.mentions.members.first())}\nisOwner = ${checkRoles.isOwner(message.mentions.members.first())}\nisAdmin = ${checkRoles.isAdmin(message.mentions.members.first())}\nisMod = ${checkRoles.isMod(message.mentions.members.first())}\nisStaff = ${checkRoles.isStaff(message.mentions.members.first())}\nisGuide = ${checkRoles.isGuide(message.mentions.members.first())}`)
     }
     if(command === "gems") {
         message.delete().catch(O_o=>{});
