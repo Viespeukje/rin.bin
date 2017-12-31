@@ -2,22 +2,9 @@
 
 module.exports = (client, message) => {
 
-    //Rin's To-Do List
-    console.log('TO DO: Refine the way permissions are handled on the bot.')
-    //Maybe have a little bit of dialogue that says something like "as a ROLE you are able to use the following commands..."
-
-    message.delete().catch(O_o=>{});
-
     //Establishes mentioned user
     var member = message.mentions.users.first();
-
-    //If the user lacks the appropriate role, fail.
-    if(!message.member.roles.some(r=>["Admin", "Moderator", "Bot Testing"].includes(r.name)) ){
-        console.log(`${message.author.username} attempted to generate a warning link for Failed due to lack of permissions.`);
-        message.author.send("You lack the permissions to use this command.");
-        return;
-    }
-
+ 
     //If var member is "falsy" and no users are mentioned, fail immediately.
     if(!member){
         message.delete().catch(O_o=>{}); 

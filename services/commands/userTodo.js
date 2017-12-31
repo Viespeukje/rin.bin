@@ -5,7 +5,3 @@
 
  //Make the help command only show commands the user can actually use.
  //Maybe have a little bit of dialogue that says something like "as a ROLE you are able to use the following commands..."
-
-//Permissions
-
- //Change the way permissions work so they're handled by a separate js file

@@ -2,22 +2,11 @@
 
 module.exports = (client, message, prefix) => {
 
-    //Rin's To-Do List
-    console.log('TO DO: Refine the way permissions are handled on the bot.')
-    //Maybe have a little bit of dialogue that says something like "as a ROLE you are able to use the following commands..."
-
-    message.delete().catch(O_o=>{});
-
-    if(!message.member.roles.some(r=>["Admin", "Moderator", "Guide"].includes(r.name)) ){ 
-        console.log(`${message.author.username} attempted to post the gem dialogue. Failed due to lack of permissions.`);
-        return; 
-    }
-
     //Report to the console that someone called the command.
     console.log(`${message.author.username} has posted the gem dialogue.`);
 
     message.channel.send({embed: {
-        color: 3447003,
+        color: 15844367,
         author: {
             icon_url: "https://images.emojiterra.com/mozilla/512px/1f48e.png",
              name: " A primer on Gems!\n\n"
