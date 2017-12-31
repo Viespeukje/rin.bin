@@ -3,11 +3,7 @@
 const 
     checkRoles = require('./checkRoles'),
     fetchRoles = require('./commands/fetchRoles'),
-<<<<<<< HEAD
-    pandobotRandom = require('./commands/pandobotRandom'),
-=======
     //pandobotRandom = require('./commands/pandobotRandom'),
->>>>>>> backup
     userHelp = require('./commands/userHelp'),
     userGems = require('./commands/userGems'),
     userSay = require('./commands/userSay'),
@@ -15,11 +11,7 @@ const
 
 module.exports = (client, message, prefix, env) => {
     
-<<<<<<< HEAD
-    pandobotRandom(client, message, env, 0.01); //EasterEgg: Currently a .01 chance on pandobot message to reply.
-=======
     //pandobotRandom(client, message, env, 0.01); Currently disabled because it somehow fucks up **everything**
->>>>>>> backup
 
     if(message.author.bot) return; //Any bot inputs below this line will be ignored.
 
