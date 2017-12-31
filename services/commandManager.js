@@ -38,6 +38,7 @@ module.exports = (client, message, prefix, env) => {
     if(command === "rolecheck") {
         message.delete().catch(O_o=>{});
         if (checkRoles.isStaff(message.member) == false) return;
+        if (!message.mentions.users.first()) return;
         message.author.send(`Role Permissions Debug [${message.mentions.users.first().username}#${message.mentions.users.first().discriminator}]\nisBotOwner = ${checkRoles.isBotOwner(message.mentions.members.first())}\nisOwner = ${checkRoles.isOwner(message.mentions.members.first())}\nisAdmin = ${checkRoles.isAdmin(message.mentions.members.first())}\nisMod = ${checkRoles.isMod(message.mentions.members.first())}\nisStaff = ${checkRoles.isStaff(message.mentions.members.first())}\nisGuide = ${checkRoles.isGuide(message.mentions.members.first())}`)
     }
     if(command === "gems") {
