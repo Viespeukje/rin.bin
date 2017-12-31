@@ -3,6 +3,7 @@
 const 
     checkRoles = require('./checkRoles'),
     fetchRoles = require('./commands/fetchRoles'),
+    //pandobotRandom = require('./commands/pandobotRandom'),
     userHelp = require('./commands/userHelp'),
     userGems = require('./commands/userGems'),
     userSay = require('./commands/userSay'),
@@ -10,8 +11,10 @@ const
 
 module.exports = (client, message, prefix, env) => {
     
+    //pandobotRandom(client, message, env, 0.01); Currently disabled because it somehow fucks up **everything**
+
     if(message.author.bot) return; //Any bot inputs below this line will be ignored.
-        
+
     if(message.content
         .indexOf(prefix) !== 0) return; //Any inputs below this line that do not begin with the prefix will be ignored
 
