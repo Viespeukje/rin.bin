@@ -22,7 +22,7 @@ module.exports = (client, message, prefix) => {
         },
         {
             name: "How do I check my gem balance?",
-            value: "Go to the #bot_commands channel and type: ``/gems``\n"
+            value: "Go to the <#317789722787446784> channel and type: ``/gems``\n"
         },
         // {
         // 	name: "How do I get gems?",
@@ -30,19 +30,19 @@ module.exports = (client, message, prefix) => {
         // },
         {
             name: "What do vanity ranks do?",
-            value: "They look pretty, mostly. However any rank higher than Innocent gains access to the #selfies channel.\n"
+            value: "They look pretty, mostly. However any rank higher than Innocent gains access to the selfies channel.\n"
         },
         {
             name: "How do I upgrade my vanity rank?",
-            value: "Go to the #bot_commands channel and type: ``/upgrade``\n"
+            value: "Go to the <#317789722787446784> channel and type: ``/upgrade``\n"
         },
         {
             name: "How much do the ranks cost?",
-            value: "An exact amount can be found posted in the #bot_commands channel.\n"
+            value: "An exact amount can be found posted in the <#317789722787446784> channel.\n"
         },
         {
             name: "How do I give someone gems?",
-            value: "Go to the #bot_commands channel and type: ``/give @username GemNumber``\n"
+            value: "Go to the <#317789722787446784> channel and type: ``/give @username GemNumber``\n"
         },
         {
             name: "Why can I not trade gems?",
