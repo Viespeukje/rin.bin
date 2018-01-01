@@ -7,7 +7,12 @@
     },
     {
       "name": "say",
-      "description": "This command will cause me to delete your message and repeat it myself. The alternate command ``saycode`` will put the text in a codebox.",
+      "description": "This command will cause me to delete your message and repeat it myself.",
+      "permissions": "isBotOwner"
+    },
+    {
+      "name": "saycode",
+      "description": "This alternate form of say will put the text in a codebox.",
       "permissions": "isBotOwner"
     },
     {

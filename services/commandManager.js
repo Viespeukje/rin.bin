@@ -2,7 +2,7 @@
 
 const 
     checkRoles = require('./commands/checkRoles'),
-    fetchRoles = require('./commands/fetchRoles'),
+    commandPermissions = require('./commandPermissions'),
     //pandobotRandom = require('./commands/pandobotRandom'),
     userHelp = require('./commands/userHelp'),
     userGems = require('./commands/userGems'),
@@ -29,36 +29,51 @@ module.exports = (client, message, prefix, env) => {
    
     if(!message.member) return;   //Any command that runs a role check MUST be below this line.
 
-    //ToDo: Handle the message deletion in another file maybe, and add permission rejection messages.
+
+
+
+    //  All command permissions checks are managed using commandPermissions(message.member, command)
+    //  for a full explanation, check commandPermissions.js
 
     if(command === "help") {
         message.delete().catch(O_o=>{});
+
         userHelp(client, message, prefix);
     }
+
     if(command === "rolecheck") {
         message.delete().catch(O_o=>{});
-        if (checkRoles.isStaff(message.member) == false) return;
+        if(!commandPermissions(message.member, command)) return;
+
         if (!message.mentions.users.first()) return;
         message.author.send(`Role Permissions Debug [${message.mentions.users.first().username}#${message.mentions.users.first().discriminator}]\nisBotOwner = ${checkRoles.isBotOwner(message.mentions.members.first())}\nisOwner = ${checkRoles.isOwner(message.mentions.members.first())}\nisAdmin = ${checkRoles.isAdmin(message.mentions.members.first())}\nisMod = ${checkRoles.isMod(message.mentions.members.first())}\nisStaff = ${checkRoles.isStaff(message.mentions.members.first())}\nisGuide = ${checkRoles.isGuide(message.mentions.members.first())}`)
     }
+
     if(command === "gems") {
         message.delete().catch(O_o=>{});
-        if (checkRoles.isGuide(message.member) == false) return;
+        if(!commandPermissions(message.member, command)) return;
+
         userGems(client, message);
     }
+
     if(command === "say") {
         message.delete().catch(O_o=>{});
-        if (checkRoles.isBotOwner(message.member) == false) return;
+        if(!commandPermissions(message.member, command)) return;
+
         userSay.normal(message, args);
     }
+
     if(command === "saycode") {
         message.delete().catch(O_o=>{});
-        if (checkRoles.isBotOwner(message.member) == false) return;
+        if(!commandPermissions(message.member, command)) return;
+
         userSay.codebox(message, args);
     }
+
     if(command === "warn") {
         message.delete().catch(O_o=>{});
-        if (checkRoles.isStaff(message.member) == false) return;
+        if(!commandPermissions(message.member, command)) return;
+
         userWarn(client, message);
     }
 
