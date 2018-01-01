@@ -1,47 +1,48 @@
 'use strict'
 
-const fetchRoles = require('./commands/fetchRoles'); //Fetches all the roles on the given server and puts them in an array.
+
+const
+    permissionConfig = require('../../permissionConfig')
 
 //Allows the roles considered 'staff' to be changed easily.
-const staffroles = ["Owner", "Admin", "Moderator"];
+
 
 const isBotOwner = function (member) {
-    if(member.id != "129052371702513664") return false;
+    if(member.id != permissionConfig.ownerID) return false;
     else return true;
 }
 
 const isOwner = function (member) {
     return member.roles
-    .some(roles=>["Owner"]
+    .some(roles=>permissionConfig.roles.isOwner
         .includes(roles.name)
     );
 }
 
 const isAdmin = function (member) {
     return member.roles
-    .some(roles=>["Admin"]
+    .some(roles=>permissionConfig.roles.isAdmin
         .includes(roles.name)
     );
 }
 
 const isMod = function (member) {
     return member.roles
-    .some(roles=>["Moderator"]
+    .some(roles=>permissionConfig.roles.isModerator
         .includes(roles.name)
     );
 }
 
 const isStaff = function (member) {
     return member.roles
-    .some(roles=>staffroles
+    .some(roles=>permissionConfig.roles.isStaff
         .includes(roles.name)
     );
 }
 
 const isGuide = function (member) {
     return member.roles
-    .some(roles=>["Guide"]
-        .concat(staffroles) //Also include the staff roles referenced above, just not explicitly.
+    .some(roles=>permissionConfig.roles.isGuide
         .includes(roles.name)
     );
 }

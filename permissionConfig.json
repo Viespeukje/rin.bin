@@ -1,0 +1,10 @@
+{
+  "roles": {
+    "isOwner": ["Owner"],
+    "isAdmin": ["Admin"],
+    "isMod": ["Moderator"],
+    "isStaff": ["Admin", "Moderator"],
+    "isGuide": ["Admin", "Moderator", "Guide"]
+    },
+  "ownerID": "129052371702513664"
+}

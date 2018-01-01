@@ -1,7 +1,7 @@
 'use strict'
 
 const 
-    checkRoles = require('./checkRoles'),
+    checkRoles = require('./commands/checkRoles'),
     fetchRoles = require('./commands/fetchRoles'),
     //pandobotRandom = require('./commands/pandobotRandom'),
     userHelp = require('./commands/userHelp'),
