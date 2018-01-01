@@ -28,7 +28,7 @@ const isAdmin = function (member) {
 
 const isMod = function (member) {
     return member.roles
-    .some(roles=>permissionConfig.roles.isModerator
+    .some(roles=>permissionConfig.roles.isMod
         .includes(roles.name)
     );
 }
