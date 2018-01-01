@@ -5,6 +5,7 @@ const
     commandPermissions = require('./commandPermissions'),
     //pandobotRandom = require('./commands/pandobotRandom'),
     userHelp = require('./commands/userHelp'),
+    userPlaying = require('./commands/userPlaying'),
     userGems = require('./commands/userGems'),
     userSay = require('./commands/userSay'),
     userWarn = require('./commands/userWarn')
@@ -49,11 +50,18 @@ module.exports = (client, message, prefix, env) => {
         message.author.send(`Role Permissions Debug [${message.mentions.users.first().username}#${message.mentions.users.first().discriminator}]\nisBotOwner = ${checkRoles.isBotOwner(message.mentions.members.first())}\nisOwner = ${checkRoles.isOwner(message.mentions.members.first())}\nisAdmin = ${checkRoles.isAdmin(message.mentions.members.first())}\nisMod = ${checkRoles.isMod(message.mentions.members.first())}\nisStaff = ${checkRoles.isStaff(message.mentions.members.first())}\nisGuide = ${checkRoles.isGuide(message.mentions.members.first())}`)
     }
 
-    if(command === "gems") {
+    if(command === "aboutgems") {
         message.delete().catch(O_o=>{});
         if(!commandPermissions(message.member, command)) return;
 
         userGems(client, message);
+    }
+
+    if(command === "playing") {
+        message.delete().catch(O_o=>{});
+        if(!commandPermissions(message.member, command)) return;
+
+        userPlaying(client, args);
     }
 
     if(command === "say") {

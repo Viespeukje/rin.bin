@@ -16,7 +16,12 @@
       "permissions": "isBotOwner"
     },
     {
-      "name": "gems",
+      "name": "playing",
+      "description": "This command will change my 'now playing' message.",
+      "permissions": "isBotOwner"
+    },
+    {
+      "name": "aboutgems",
       "description": "This command will cause me to post a primer on how gems on the server work.",
       "permissions": "isGuide"
     },
