@@ -61,9 +61,9 @@ startupDebug.general(prefix, env);
 
 // Gracefully shutdown on CTRL + C
 process.on('SIGINT', function () {
-    console.log(`Shutting down node...`)
+    console.log('\x1b[34m%s\x1b[0m', `Shutting down node...`)
     process.exit(0)
 })
 
 //Unhandled Rejection
-process.on('unhandledRejection', err => console.log(`Uncaught Promise Error: \n${err.stack}`))
+process.on('unhandledRejection', err => console.log("\x1b[31m%s\x1b[0m", `Uncaught Promise Error: \n${err.stack}`))

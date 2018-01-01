@@ -55,5 +55,5 @@ module.exports = (client, message, prefix) => {
           text: "I've been a good girl, right..?"
         }
       }
-    });
+    }).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Embed send failed in ${message.channel.name} when "${message}" was sent by ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
 }

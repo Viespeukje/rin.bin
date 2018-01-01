@@ -3,7 +3,8 @@
 const 
     checkRoles = require('./commands/checkRoles'),
     commandPermissions = require('./commandPermissions'),
-    //pandobotRandom = require('./commands/pandobotRandom'),
+    commandList = require('../commandList'),
+    //pandobotRandom = require('./commands/pandobotRandom'), // Currently disabled because it somehow fucks up **everything**
     userHelp = require('./commands/userHelp'),
     userPlaying = require('./commands/userPlaying'),
     userGems = require('./commands/userGems'),
@@ -12,30 +13,33 @@ const
 
 module.exports = (client, message, prefix, env) => {
     
-    //pandobotRandom(client, message, env, 0.01); Currently disabled because it somehow fucks up **everything**
+    //pandobotRandom(client, message, env, 0.01); // Currently disabled because it somehow fucks up **everything**
 
     if(message.author.bot) return; //Any bot inputs below this line will be ignored.
 
     if(message.content
         .indexOf(prefix) !== 0) return; //Any inputs below this line that do not begin with the prefix will be ignored
 
-    const args = message.content     // This set of commands breaks up the message into a collection "args"
-        .slice(prefix.length)     // Slice takes the message content and cuts off the arguments corresponding to the length of the config.prefix
-        .trim()    // Trim cleans up any and all spaces
-        .split(/ +/g);    // Split makes an array out of the string.
+    const args = message.content //Makes array of args from message
+        .slice(prefix.length)
+        .trim()
+        .split(/ +/g);
 
-    const command = args // This set of commands defines command from args
-        .shift()    // Shift removes the first element from an array to be processed
-        .toLowerCase();    // toLowerCase() changes it to lower case
+    const command = args //Defines command as the first arg, but lower case
+        .shift()
+        .toLowerCase();
    
     if(!message.member) return;   //Any command that runs a role check MUST be below this line.
 
-
-
-    message.delete().catch(err => console.log(`ERROR: Message deletion failed in ${message.channel.name} when ${message} was sent by ${message.author.username}#${message.author.discriminator}.`));
-
     //  All command permissions checks are managed using commandPermissions(message.member, command)
     //  for a full explanation, check commandPermissions.js
+
+
+
+
+
+    //If the determined command matches one of the entries in commandList, delete the message containing it.
+    if(commandList.commands.find((cmd)=>{if(cmd.name === command) return cmd})) message.delete().catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Message deletion failed in ${message.channel.name} when "${message}" was sent by ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
 
     if(command === "help") {
         userHelp(client, message, prefix);
@@ -77,8 +81,4 @@ module.exports = (client, message, prefix, env) => {
 
         userWarn(client, message);
     }
-
-    //Debug line to output all of the raw commands the bot takes in.
-   //console.log(`Environment: ${env}\nAuthor: ${message.author.username} (${message.author})\nMessage: ${message}\nCommand: ${command}\nArguments: ${args}\n---`);
-
 }

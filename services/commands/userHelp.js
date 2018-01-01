@@ -27,10 +27,8 @@ commandList.commands.forEach(function(commandEntries){
     //Add the name and description provided in the commandList file
     return embed.addField(`${prefix}${commandEntries.name}`, commandEntries.description);
 });
-
-    message.author.send({embed});
-    console.log(`${message.author.username} has been sent a help dialogue.`);
-
+    console.log(`${message.author.username} has requested a help dialogue.`);
+    message.author.send({embed}).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Direct message send failed to user ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
 }
 
 // POSSIBLE COLORS IN DISCORD
