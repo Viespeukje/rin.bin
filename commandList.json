@@ -2,7 +2,7 @@
    "commands": [
     {
       "name": "help",
-      "description": "This command will return a help dialogue that explains the commands avalible to that user with that user's permission level.",
+      "description": "This command will return a help dialogue that explains the commands available to that user with that user's permission level.",
       "permissions": ""
     },
     {
