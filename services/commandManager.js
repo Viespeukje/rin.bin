@@ -32,18 +32,16 @@ module.exports = (client, message, prefix, env) => {
 
 
 
+    message.delete().catch(err => console.log(`ERROR: Message deletion failed in ${message.channel.name} when ${message} was sent by ${message.author.username}#${message.author.discriminator}.`));
 
     //  All command permissions checks are managed using commandPermissions(message.member, command)
     //  for a full explanation, check commandPermissions.js
 
     if(command === "help") {
-        message.delete().catch(O_o=>{});
-
         userHelp(client, message, prefix);
     }
 
     if(command === "rolecheck") {
-        message.delete().catch(O_o=>{});
         if(!commandPermissions(message.member, command)) return;
 
         if (!message.mentions.users.first()) return;
@@ -51,35 +49,30 @@ module.exports = (client, message, prefix, env) => {
     }
 
     if(command === "aboutgems") {
-        message.delete().catch(O_o=>{});
         if(!commandPermissions(message.member, command)) return;
 
         userGems(client, message);
     }
 
     if(command === "playing") {
-        message.delete().catch(O_o=>{});
         if(!commandPermissions(message.member, command)) return;
 
         userPlaying(client, args);
     }
 
     if(command === "say") {
-        message.delete().catch(O_o=>{});
         if(!commandPermissions(message.member, command)) return;
 
         userSay.normal(message, args);
     }
 
     if(command === "saycode") {
-        message.delete().catch(O_o=>{});
         if(!commandPermissions(message.member, command)) return;
 
         userSay.codebox(message, args);
     }
 
     if(command === "warn") {
-        message.delete().catch(O_o=>{});
         if(!commandPermissions(message.member, command)) return;
 
         userWarn(client, message);
