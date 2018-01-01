@@ -3,7 +3,7 @@
 const 
     Discord = require("discord.js"),
     commandList = require('../../commandList'),
-    checkRoles = require('./checkRoles'),
+    checkRoles = require('../tools/checkRoles'),
     util = require('util')
     
 module.exports = (client, message, prefix) => {

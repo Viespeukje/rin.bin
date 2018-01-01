@@ -14,7 +14,7 @@
 
 const 
     commandList = require('../commandList'),
-    checkRoles = require('./commands/checkRoles')   
+    checkRoles = require('./tools/checkRoles')   
 
 module.exports = (member, command) => {
 

@@ -7,8 +7,9 @@ require('dotenv').config()
 const
     Discord = require("discord.js"), // Discord.js library
     commandManager = require('./services/commandManager'), //Run commandManager Functions
-    startupDebug = require('./services/commands/startupDebug'),
-    guildChange = require('./services/commands/guildChange'), //Startup Debug Functions
+    voteManager = require('./services/voteManager'), //reaction voting manager
+    startupDebug = require('./services/tools/startupDebug'),
+    guildChange = require('./services/tools/guildChange'), //Startup Debug Functions
     webserver = require('./services/webserver')//Heroku webserver launch code
 
 // This is the client. This is what is referred to with 'client.something' or 'bot.something' but it could be anything.
@@ -51,6 +52,17 @@ client.on("guildDelete", guild => {
 client.on("message", message => {
     commandManager(client, message, prefix, env);
 });
+
+//This event triggers when a reaction is added
+client.on("messageReactionAdd", (reaction, user) => {
+    voteManager(reaction, user, prefix, env);
+ });
+
+ //This event triggers when a reaction is removed
+ client.on("messageReactionRemove", (reaction, user) => {
+    console.log(`"${reaction.message}" ${reaction.emoji.name} was un-reacted to by ${user.username}#${user.discriminator}. (${reaction.count} users total.)`)
+});
+ 
 
 //Debug line to check if the code is running at all
 startupDebug.general(prefix, env);

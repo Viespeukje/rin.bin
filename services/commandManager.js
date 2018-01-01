@@ -1,8 +1,9 @@
 'use strict'
 
 const 
-    checkRoles = require('./commands/checkRoles'),
+    checkRoles = require('./tools/checkRoles'),
     commandPermissions = require('./commandPermissions'),
+    voteCreator = require('./tools/voteCreator'),
     commandList = require('../commandList'),
     //pandobotRandom = require('./commands/pandobotRandom'), // Currently disabled because it somehow fucks up **everything**
     userHelp = require('./commands/userHelp'),
@@ -37,12 +38,18 @@ module.exports = (client, message, prefix, env) => {
 
 
 
-
     //If the determined command matches one of the entries in commandList, delete the message containing it.
     if(commandList.commands.find((cmd)=>{if(cmd.name === command) return cmd})) message.delete().catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Message deletion failed in ${message.channel.name} when "${message}" was sent by ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
 
     if(command === "help") {
         userHelp(client, message, prefix);
+    }
+
+    // THIS IS A TEST COMMAND
+    if(command == "vote"){
+        if(!commandPermissions(message.member, command)) return;
+        if (env === 'live') console.log('Vote is currently set to not work on the live environment');
+        else voteCreator(message, args);
     }
 
     if(command === "rolecheck") {
