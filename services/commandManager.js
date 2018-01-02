@@ -3,7 +3,6 @@
 const 
     checkRoles = require('./tools/checkRoles'),
     commandPermissions = require('./commandPermissions'),
-    voteCreator = require('./tools/voteCreator'),
     commandList = require('../commandList'),
     //pandobotRandom = require('./commands/pandobotRandom'), // Currently disabled because it somehow fucks up **everything**
     userHelp = require('./commands/userHelp'),
@@ -43,13 +42,6 @@ module.exports = (client, message, prefix, env) => {
 
     if(command === "help") {
         userHelp(client, message, prefix);
-    }
-
-    // THIS IS A TEST COMMAND
-    if(command == "vote"){
-        if(!commandPermissions(message.member, command)) return;
-        if (env === 'live') console.log('Vote is currently set to not work on the live environment');
-        else voteCreator(message, args);
     }
 
     if(command === "rolecheck") {

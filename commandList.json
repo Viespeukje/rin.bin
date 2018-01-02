@@ -36,6 +36,11 @@
       "permissions": "isStaff"
     },
     {
+      "name": "guidevote",
+      "description": "This command is a debug command used to call a vote in the channel it is typed in. ``=vote VotestoCollect VotestoPass Description``",
+      "permissions": "isStaff"
+    },
+    {
       "name": "rolecheck",
       "description": "This command is used to check the permissions of the first user mentioned after the command. If no users are mentioned, it will fail.",
       "permissions": "isStaff"

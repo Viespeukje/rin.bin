@@ -7,7 +7,6 @@ require('dotenv').config()
 const
     Discord = require("discord.js"), // Discord.js library
     commandManager = require('./services/commandManager'), //Run commandManager Functions
-    voteManager = require('./services/voteManager'), //reaction voting manager
     startupDebug = require('./services/tools/startupDebug'),
     guildChange = require('./services/tools/guildChange'), //Startup Debug Functions
     webserver = require('./services/webserver')//Heroku webserver launch code
@@ -55,12 +54,12 @@ client.on("message", message => {
 
 //This event triggers when a reaction is added
 client.on("messageReactionAdd", (reaction, user) => {
-    voteManager(reaction, user, prefix, env);
+    //
  });
 
  //This event triggers when a reaction is removed
  client.on("messageReactionRemove", (reaction, user) => {
-    console.log(`"${reaction.message}" ${reaction.emoji.name} was un-reacted to by ${user.username}#${user.discriminator}. (${reaction.count} users total.)`)
+     //
 });
  
 
