@@ -1,49 +1,38 @@
 {
-   "commands": [
-    {
+    
+  "help": {
       "name": "help",
       "description": "This command will return a help dialogue that explains the commands available to that user with that user's permission level.",
-      "permissions": ""
-    },
-    {
+      "permissions": "isUser"
+  },
+  "say": {
       "name": "say",
       "description": "This command will cause me to delete your message and repeat it myself.",
       "permissions": "isBotOwner"
-    },
-    {
+  },
+  "saycode": {
       "name": "saycode",
       "description": "This alternate form of say will put the text in a codebox.",
       "permissions": "isBotOwner"
-    },
-    {
+  },
+  "playing": {
       "name": "playing",
       "description": "This command will change my 'now playing' message.",
       "permissions": "isBotOwner"
-    },
-    {
+  },
+  "aboutgems": {
       "name": "aboutgems",
       "description": "This command will cause me to post a primer on how gems on the server work.",
       "permissions": "isGuide"
-    },
-    {
+  },
+  "warn": {
       "name": "warn",
       "description": "This command is used to warn the first user mentioned after the command. If no users are mentioned, it will fail. If more than one user is mentioned, the link will be generated for the first one only.",
       "permissions": "isStaff"
-    },
-    {
-      "name": "vote",
-      "description": "This command is a debug command used to call a vote in the channel it is typed in. ``=vote VotestoCollect VotestoPass Description``",
-      "permissions": "isStaff"
-    },
-    {
-      "name": "guidevote",
-      "description": "This command is a debug command used to call a vote in the channel it is typed in. ``=vote VotestoCollect VotestoPass Description``",
-      "permissions": "isStaff"
-    },
-    {
+  },
+  "rolecheck": {
       "name": "rolecheck",
       "description": "This command is used to check the permissions of the first user mentioned after the command. If no users are mentioned, it will fail.",
       "permissions": "isStaff"
-    }
-  ]
+  }
 }

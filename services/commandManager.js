@@ -35,10 +35,7 @@ module.exports = (client, message, prefix, env) => {
     //  for a full explanation, check commandPermissions.js
 
 
-
-
-    //If the determined command matches one of the entries in commandList, delete the message containing it.
-    if(commandList.commands.find((cmd)=>{if(cmd.name === command) return cmd})) message.delete().catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Message deletion failed in ${message.channel.name} when "${message}" was sent by ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
+    if(commandList[command]) message.delete().catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Message deletion failed in ${message.channel.name} when "${message}" was sent by ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
 
     if(command === "help") {
         userHelp(client, message, prefix);

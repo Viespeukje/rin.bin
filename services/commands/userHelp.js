@@ -3,9 +3,8 @@
 const 
     Discord = require("discord.js"),
     commandList = require('../../commandList'),
-    checkRoles = require('../tools/checkRoles'),
-    util = require('util')
-    
+    checkRoles = require('../tools/checkRoles')
+
 module.exports = (client, message, prefix) => {
 
   const embed = new Discord.RichEmbed()
@@ -14,20 +13,14 @@ module.exports = (client, message, prefix) => {
         .setTitle("Hello! I'm Rin.bin!")
         .setDescription(`I am Rin's attempt at a chat bot and a project to learn some NodeJS. Please bear in mind that I'm still very much a work in progress, but both of us are doing our best. Based on your permissions, you are able to use the following commands...`)
         .setFooter("I've been a good girl, right..?", client.user.avatarURL);
-    
-commandList.commands.forEach(function(commandEntries){
-    //If you do not pass the permissions check required in the commandList file, this will fail.
-    if(commandEntries.permissions == "isBotOwner" && !checkRoles.isBotOwner(message.member)) return;
-    if(commandEntries.permissions == "isOwner" && !checkRoles.isOwner(message.member)) return;
-    if(commandEntries.permissions == "isAdmin" && !checkRoles.isAdmin(message.member)) return;
-    if(commandEntries.permissions == "isMod" && !checkRoles.isMod(message.member)) return;
-    if(commandEntries.permissions == "isStaff" && !checkRoles.isStaff(message.member)) return;
-    if(commandEntries.permissions == "isGuide" && !checkRoles.isGuide(message.member)) return;
 
-    //Add the name and description provided in the commandList file
-    return embed.addField(`${prefix}${commandEntries.name}`, commandEntries.description);
-});
-    console.log(`${message.author.username} has requested a help dialogue.`);
+    Object.keys(commandList).forEach(key => {
+        let permlevel = commandList[key].permissions;
+
+        if(!checkRoles[permlevel](message.member)) return;
+        else embed.addField(prefix + commandList[key].name, commandList[key].description);
+    });
+
     message.author.send({embed}).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Direct message send failed to user ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
 }
 

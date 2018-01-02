@@ -2,9 +2,7 @@
 
 
 const
-    permissionConfig = require('../../permissionConfig')
-
-//Allows the roles considered 'staff' to be changed easily.
+    permissionConfig = require('../../permissionConfig') //Define roles are considered to match each permission level.
 
 
 const isBotOwner = function (member) {
@@ -46,6 +44,10 @@ const isGuide = function (member) {
         .includes(roles.name)
     );
 }
+const isUser = function (member) {
+    //Check if the person being put in is a User. If they weren't, it never would have gotten here.
+    return true;
+}
 
 module.exports = {
     isBotOwner: isBotOwner,
@@ -53,7 +55,8 @@ module.exports = {
     isAdmin: isAdmin,
     isMod: isMod,
     isStaff: isStaff,
-    isGuide: isGuide
+    isGuide: isGuide,
+    isUser: isUser
 }
 
 
