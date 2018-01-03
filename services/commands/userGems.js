@@ -18,7 +18,7 @@ module.exports = (client, message, prefix) => {
         },
         {
             name: "How do I get gems?",
-            value: "Gems can be earned by roleplaying, chatting, or posting images in the image boards. Different channels have different gem gains, however.\n\nMain Chat: 0.01 gems per post.\nGeneral RP Channels: 0.02 gems per word.\nCasual RP Channels: 0.02 gems per post.\nLongform RP Channels: 0.02 gems per word.\nPrivate RP Channels: 0.02 gems per word.\nPorn Image Channels: 0.05 gems per image. Max 20 per channel per hour.\n"
+            value: "Gems can be earned by roleplaying, chatting, or posting images in the image boards. Different channels have different gem gains, however.\n\nMain Chat: 0.01 gems per post.\nGeneral RP Channels: 0.02 gems per word.\nCasual RP Channels: 0.02 gems per post.\nLongform RP Channels: 0.02 gems per word.\nPrivate RP Channels: 0.02 gems per word.\nPorn Image Channels: 0.05 gems per image. Max 20 images per channel per hour.\n"
         },
         {
             name: "How do I check my gem balance?",
