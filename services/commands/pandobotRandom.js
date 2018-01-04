@@ -7,7 +7,6 @@ module.exports = (client, message, env, chance) => {
     //Chance is the probability of this happening as a decimal.
 
     //PandobotRandom Restriction Lines
-    if(env === 'test') return; //Use this to limit the enviroment and avoid spam because it is accepting a prefixless input.
     if(message.author.bot = false) return; //Any NON bot inputs below this line will be ignored in case someone wants to change their name to PandoBot for some reason.
     
     //Random Chance Lines
