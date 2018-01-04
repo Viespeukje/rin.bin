@@ -4,7 +4,7 @@ const
     checkRoles = require('./tools/checkRoles'),
     commandPermissions = require('./commandPermissions'),
     commandList = require('../commandList'),
-    //pandobotRandom = require('./commands/pandobotRandom'), // Currently disabled because it somehow fucks up **everything**
+    pandobotRandom = require('./commands/pandobotRandom'), // Currently disabled because it somehow fucks up **everything**
     userHelp = require('./commands/userHelp'),
     userPlaying = require('./commands/userPlaying'),
     userGems = require('./commands/userGems'),
@@ -13,7 +13,7 @@ const
 
 module.exports = (client, message, prefix, env) => {
     
-    //pandobotRandom(client, message, env, 0.01); // Currently disabled because it somehow fucks up **everything**
+    pandobotRandom(client, message, env, 0.01); // Currently disabled because it somehow fucks up **everything**
 
     if(message.author.bot) return; //Any bot inputs below this line will be ignored.
 
