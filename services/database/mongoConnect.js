@@ -10,7 +10,7 @@ const
 //Define constants used for connection
 const 
   url = process.env.MONGODB_URI,
-  dbName = 'heroku_sn3pdxkb' //Will not be hardcoded in the future
+  dbName = process.env.MONGODB_DB //Will not be hardcoded in the future
 
 
 
@@ -27,15 +27,15 @@ MongoClient.connect(url, function(err, client) {
   const collection = db.collection('test');
 
   //Test to insert some documents
-  collection.insertMany([
-    {testvalue : 1}, {testvalue : 2}, {testvalue : 3}
-  ]);
-  console.log("Successfully inserted 3 files");
+  // collection.insertMany([
+  //   {testvalue : 1}, {testvalue : 2}, {testvalue : 3}
+  // ]);
+  // console.log("Successfully inserted 3 files");
   
-  //Test to get contents of file
-  collection.find({}).forEach(function(docs) {
-    console.log(docs.testvalue);
-  });
+  // //Test to get contents of file
+  // collection.find({}).forEach(function(docs) {
+  //   console.log(docs.testvalue);
+  // });
 
   client.close();
 });

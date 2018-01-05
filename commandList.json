@@ -15,6 +15,11 @@
       "description": "This alternate form of say will put the text in a codebox.",
       "permissions": "isBotOwner"
   },
+  "guidemute": {
+    "name": "guidemute",
+    "description": "This command is used to initiate a guide mute vote. These votes require two votes in favor to pass.",
+    "permissions": "isStaff"
+},
   "playing": {
       "name": "playing",
       "description": "This command will change my 'now playing' message.",

@@ -10,7 +10,8 @@ const
     startupDebug = require('./services/tools/startupDebug'),
     guildChange = require('./services/tools/guildChange'), //Startup Debug Functions
     webserver = require('./services/webserver'),//Heroku webserver launch code
-    mongoConnect = require('./services/mongoConnect')//MongoDB database
+    mongoConnect = require('./services/database/mongoConnect'),//MongoDB database
+    mongoFind = require('./services/database/mongoFind')//MongoDB database
 
 // This is the client. This is what is referred to with 'client.something' or 'bot.something' but it could be anything.
 const client = new Discord.Client();
@@ -55,7 +56,7 @@ client.on("message", message => {
 
 //This event triggers when a reaction is added
 client.on("messageReactionAdd", (reaction, user) => {
-    //
+    if (reaction.message.author.username == "Rin.bin") mongoFind.voteID(reaction);
  });
 
  //This event triggers when a reaction is removed

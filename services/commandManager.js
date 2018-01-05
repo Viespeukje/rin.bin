@@ -8,6 +8,7 @@ const
     userHelp = require('./commands/userHelp'),
     userPlaying = require('./commands/userPlaying'),
     userGems = require('./commands/userGems'),
+    userGuideMute = require('./commands/userGuideMute'),
     userSay = require('./commands/userSay'),
     userWarn = require('./commands/userWarn')
 
@@ -52,6 +53,12 @@ module.exports = (client, message, prefix, env) => {
         if(!commandPermissions(message.member, command)) return;
 
         userGems(client, message);
+    }
+
+    if(command === "guidemute") {
+        if(!commandPermissions(message.member, command)) return;
+
+        userGuideMute(client, message);
     }
 
     if(command === "playing") {
