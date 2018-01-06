@@ -34,7 +34,7 @@ module.exports = () => {
     // 3. Start listening
     const server = app.listen(process.env.PORT || 5000)
     
-    console.log('\x1b[34m%s\x1b[0m', 'My webserver is running properly.\n---')
+    console.log('\x1b[34m%s\x1b[0m', 'My webserver started successfully.\n---')
 
     // 4. Server shutdown
     process.on('SIGTERM', function () {

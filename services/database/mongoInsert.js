@@ -17,7 +17,7 @@ const guideMute = async function (messid, memid) {
 
   try {
     client = await MongoClient.connect(url);
-    console.log("Connected correctly to server...");
+    console.log("---\nMongoInsert: Connected correctly to server...");
 
     const db = client.db(dbName);
 
@@ -26,8 +26,7 @@ const guideMute = async function (messid, memid) {
 
     // Insert a single document
     await col.insertOne({messageid : messid, memberid : memid, toPass : 3, toFail : 2, voteType : "guideMute"});
-    console.log("Doc correctly inserted...");
-
+    console.log(`MongoInsert: guideMute for ${messid} correctly inserted...`);
   } 
   catch (err) {
     console.log(err.stack);
@@ -35,7 +34,7 @@ const guideMute = async function (messid, memid) {
 
   // Close connection
   client.close();
-  console.log("Disconnected correctly from server...");
+  console.log("MongoInsert: Disconnected correctly from server...\n---");
 };
 
 

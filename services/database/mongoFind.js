@@ -17,20 +17,19 @@ const voteInfo = async function(reaction) {
 
   try {
     client = await MongoClient.connect(url);
-    console.log("Connected correctly to server");
 
     const db = client.db(dbName);
 
     // Get the collection
     const col = db.collection('vote');
 
-    let messID = reaction.message.id; 
+    // Get first doc that has the same messageid as reaction.message.id
+    const docs = await col.find({'messageid': reaction.message.id}).next();
 
-    // Get first two documents that match the query
-    const docs = await col.find({'messageid': messID}).next();
+    //If the doc is not found, return false to be rejected.
     if(!docs) return false;
 
-    console.log(docs);
+    //If the doc is  found, return it.
     return docs;
   } catch (err) {
     console.log(err.stack);

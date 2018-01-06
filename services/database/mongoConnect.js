@@ -9,33 +9,14 @@ const
 
 //Define constants used for connection
 const 
-  url = process.env.MONGODB_URI,
-  dbName = process.env.MONGODB_DB //Will not be hardcoded in the future
-
+  url = process.env.MONGODB_URI
 
 
 // Use connect method to connect to the server
 MongoClient.connect(url, function(err, client) {
 
   //Confirm that it is connected
-  console.log("Connected successfully to MongoDB");
-
-  //Define the database to access
-  const db = client.db(dbName);
-
-  //Get the collection 'test' in database dbName
-  const collection = db.collection('test');
-
-  //Test to insert some documents
-  // collection.insertMany([
-  //   {testvalue : 1}, {testvalue : 2}, {testvalue : 3}
-  // ]);
-  // console.log("Successfully inserted 3 files");
-  
-  // //Test to get contents of file
-  // collection.find({}).forEach(function(docs) {
-  //   console.log(docs.testvalue);
-  // });
+  console.log('\x1b[34m%s\x1b[0m', "Connected successfully to MongoDB.\n---");
 
   client.close();
 });

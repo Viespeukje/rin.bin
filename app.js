@@ -11,7 +11,7 @@ const
     guildChange = require('./services/tools/guildChange'), //Startup Debug Functions
     webserver = require('./services/webserver'),//Heroku webserver launch code
     mongoConnect = require('./services/database/mongoConnect'),//MongoDB database
-    mongoFind = require('./services/database/mongoFind')//MongoDB database
+    mongoFind = require('./services/database/mongoFind')//Pull from a database
 
 // This is the client. This is what is referred to with 'client.something' or 'bot.something' but it could be anything.
 const client = new Discord.Client();
@@ -56,11 +56,16 @@ client.on("message", message => {
 
 //This event triggers when a reaction is added
 client.on("messageReactionAdd", async (reaction, user) => {
+    //If the message being reacted to was not posted by Rin.bin, ignore it.
     if (!reaction.message.author.username == "Rin.bin") return; 
-
+    //Fetch a constant that contains the database information for the message being reacted to.
     const voteInfo = await mongoFind.voteInfo(reaction);
-    console.log(voteInfo.messageid)
-    
+    //If the database info does not exist, reject it entirely.
+    if(!voteInfo) return;
+    //Output Test
+    console.log(voteInfo)
+
+    //Command something like voteManager[voteInfo.voteType](reaction, voteInfo)
  });
 
  //This event triggers when a reaction is removed
