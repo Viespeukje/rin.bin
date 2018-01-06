@@ -7,6 +7,7 @@ require('dotenv').config()
 const
     Discord = require("discord.js"), // Discord.js library
     commandManager = require('./services/commandManager'), //Run commandManager Functions
+    voteManager = require('./services/voteManager'), //Evaluate and run votes
     startupDebug = require('./services/tools/startupDebug'),
     guildChange = require('./services/tools/guildChange'), //Startup Debug Functions
     webserver = require('./services/webserver'),//Heroku webserver launch code
@@ -64,8 +65,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(!voteInfo) return;
     //Output Test
     console.log(voteInfo)
-
-    //Command something like voteManager[voteInfo.voteType](reaction, voteInfo)
+    voteManager(client, reaction, voteInfo, env)
  });
 
  //This event triggers when a reaction is removed
