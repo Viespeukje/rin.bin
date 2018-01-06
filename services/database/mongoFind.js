@@ -12,20 +12,34 @@ const
   url = process.env.MONGODB_URI,
   dbName = process.env.MONGODB_DB //Will not be hardcoded in the future
 
-const voteID = async function (reaction) {
+const voteInfo = async function(reaction) {
+  let client;
 
-// Use connect method to connect to the server
-MongoClient.connect(url, async function(err, client) {
-  const db = client.db(dbName); //Define the database to access
-  const collection = db.collection('votes');   //Get the collection 'votes' in database dbName
-  let messID = reaction.message.id; 
-  const asyncvar = await collection.find({'messageid': messID}).next();
-  console.log("TEST1 PASSED\n"+asyncvar.messageid)
+  try {
+    client = await MongoClient.connect(url);
+    console.log("Connected correctly to server");
+
+    const db = client.db(dbName);
+
+    // Get the collection
+    const col = db.collection('vote');
+
+    let messID = reaction.message.id; 
+
+    // Get first two documents that match the query
+    const docs = await col.find({'messageid': messID}).next();
+    if(!docs) return false;
+
+    console.log(docs);
+    return docs;
+  } catch (err) {
+    console.log(err.stack);
+  }
+
+  // Close connection
   client.close();
-  callback (test);
-});
-}
+};
 
 module.exports = {
-    voteID: voteID
+    voteInfo: voteInfo
 }

@@ -12,21 +12,31 @@ const
   url = process.env.MONGODB_URI,
   dbName = process.env.MONGODB_DB //Will not be hardcoded in the future
 
+const guideMute = async function (messid, memid) {
+  let client;
 
+  try {
+    client = await MongoClient.connect(url);
+    console.log("Connected correctly to server...");
 
-const guideMute = function (messid, memid) {
+    const db = client.db(dbName);
 
-// Use connect method to connect to the server
-MongoClient.connect(url, function(err, client) {
-  const db = client.db(dbName); //Define the database to access
-  const collection = db.collection('votes');   //Get the collection 'votes' in database dbName
-  //Test to insert
-  collection.insertOne({messageid : messid, memberid : memid, toPass : 3, toFail : 2, voteType : "guideMute"});
-  console.log("Successfully inserted a guidemute vote record.");
+    // Get the collection
+    const col = db.collection('vote');
+
+    // Insert a single document
+    await col.insertOne({messageid : messid, memberid : memid, toPass : 3, toFail : 2, voteType : "guideMute"});
+    console.log("Doc correctly inserted...");
+
+  } 
+  catch (err) {
+    console.log(err.stack);
+  }
+
+  // Close connection
   client.close();
-});
-
-}
+  console.log("Disconnected correctly from server...");
+};
 
 
 module.exports = {
