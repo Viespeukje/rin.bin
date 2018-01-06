@@ -55,8 +55,8 @@ client.on("message", message => {
 });
 
 //This event triggers when a reaction is added
-client.on("messageReactionAdd", (reaction, user) => {
-    if (reaction.message.author.username == "Rin.bin") mongoFind.voteID(reaction);
+client.on("messageReactionAdd", async (reaction, user) => {
+    if (reaction.message.author.username == "Rin.bin") console.log("TEST3 PASSED\n"+await mongoFind.voteID(reaction));
  });
 
  //This event triggers when a reaction is removed
