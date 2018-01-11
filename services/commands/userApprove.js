@@ -7,7 +7,7 @@ module.exports = (message) => {
  
     //If var member is "falsy" and no users are mentioned, fail immediately.
     if(!member){
-        console.log(`${message.author.username}#${message.author.discriminator} tried to approve user ${member.username}#${member.discriminator}.`)
+        console.log(`${message.author.username}#${message.author.discriminator} tried to approve a null user.`)
         message.author.send("Please mention a valid member of this server.");
         return;
     }
