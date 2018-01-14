@@ -38,6 +38,7 @@ client.on("ready", () => {
     //Run webserver
     webserver();
 
+    client.user.setGame(`with her fluffy tail`);
 });
 
 //This event triggers when the bot joins a guild.

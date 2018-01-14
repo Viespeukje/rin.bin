@@ -43,19 +43,22 @@ module.exports = async (client, message) => {
     const embed = new Discord.RichEmbed()
         .setAuthor(`Warning Link for User "${member.username}#${member.discriminator}"`, member.avatarURL)
 
+    //Add line for warnings, if applicable.
     if(warningCount == 1) embed.setColor(9807270)
     if(warningCount == 2) embed.addField(`Prior Warnings`,`One warning link has been generated for this user.`).setColor(15844367)
     if(warningCount == 3) embed.addField(`Prior Warnings`,`Two warning links have been generated for this user.`).setColor(15105570)
     if(warningCount >= 4) embed.addField(`Prior Warnings`,`Three or more  warning links have been generated for this user.`).setColor(15158332)
 
-
-
-        
-        
-    embed.addField('Click the link below to record a warning for this user...', `https://docs.google.com/forms/d/e/1FAIpQLSc3ceOm39F1fdJq8VkmWEsJJW3rHXawaHoejP9G34xgX9GP4w/viewform?usp=pp_url&entry.640187248=${memberstring}&entry.867163136=${memberID}&entry.687949428=${staffstring}&entry.692760464=${yearvar}-${monthvar}-${dayvar}&entry.1364186442\n`)
-        .addField(`Click the link below to see all warnings recorded...`, `https://docs.google.com/spreadsheets/d/1PBd2cgpxZE9LdWqeEi39VY_2FOxGHPaGNy0l0bxs1i8/edit?usp=sharing`)
-        .setFooter("I've been a good girl, right..?", client.user.avatarURL);
-
+    //Add footer.
+    if(member.username == "Rin.bin") embed.setFooter("But I've b-been a good girl... ;~;", client.user.avatarURL);
+    else if(member.username == "Rin") embed.setFooter("Rin doesn't deserve that! D-does she?", client.user.avatarURL);
+    else if(member.username == "Pandora") embed.setFooter("Rin won't be happy with me if I let you do that...", client.user.avatarURL);
+    else if(member.username == "PandoBot") embed.setFooter("NO! I WON'T! You can't make me do this!", client.user.avatarURL);
+    else embed.setFooter("I've been a good girl, right..?", client.user.avatarURL);
+    
+    //Easter Egg code for PandoBot
+    if (member.username != "PandoBot") embed.addField('Click the link below to record a warning for this user...', `https://docs.google.com/forms/d/e/1FAIpQLSc3ceOm39F1fdJq8VkmWEsJJW3rHXawaHoejP9G34xgX9GP4w/viewform?usp=pp_url&entry.640187248=${memberstring}&entry.867163136=${memberID}&entry.687949428=${staffstring}&entry.692760464=${yearvar}-${monthvar}-${dayvar}&entry.1364186442\n`)
+                                            .addField(`Click the link below to see all warnings recorded...`, `https://docs.google.com/spreadsheets/d/1PBd2cgpxZE9LdWqeEi39VY_2FOxGHPaGNy0l0bxs1i8/edit?usp=sharing`);
 
     message.author.send({embed}).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Direct message send failed to user ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
 }
