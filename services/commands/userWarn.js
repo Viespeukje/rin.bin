@@ -50,10 +50,16 @@ module.exports = async (client, message) => {
     if(warningCount >= 4) embed.addField(`Prior Warnings`,`Three or more  warning links have been generated for this user.`).setColor(15158332)
 
     //Add footer.
-    if(member.username == "Rin.bin") embed.setFooter("But I've b-been a good girl... ;~;", client.user.avatarURL);
-    else if(member.username == "Rin") embed.setFooter("Rin doesn't deserve that! D-does she?", client.user.avatarURL);
-    else if(member.username == "Pandora") embed.setFooter("Rin won't be happy with me if I let you do that...", client.user.avatarURL);
-    else if(member.username == "PandoBot") embed.setFooter("NO! I WON'T! You can't make me do this!", client.user.avatarURL);
+    if(member.id == "396062330397523968") embed.setFooter("But I've b-been a good girl... ;~;", client.user.avatarURL); //Rin.bin
+    else if(member.id == "129052371702513664") embed.setFooter("Rin doesn't deserve that! D-does she?", client.user.avatarURL);//Rin
+    else if(member.id == "318160447381569538") embed.setFooter("Rin won't be happy with me if I let you do that...", client.user.avatarURL); //Pandora
+    else if(member.id == "313855265478803458") embed.setFooter("AritaBot is a hard worker but... she's a little mean to me...", client.user.avatarURL); //AritaBot
+    else if(member.id == "327905220103503893") embed.setFooter("Aw, but... Chibi has always been so nice to me...", client.user.avatarURL);//Chibi
+    else if(member.id == "172534517284732928") embed.setFooter("Arita has a nice bot too.. Do I have to?", client.user.avatarURL); //Arita
+    else if(member.id == "312697858287468544") embed.setFooter("Tal seems like a nice person... What could he have done wrong?", client.user.avatarURL); //Tal
+    else if(member.id == "291853266764038145") embed.setFooter("Poor blepper... go easy on her?", client.user.avatarURL); //Ally
+    else if(member.id == "279395206024003587") embed.setFooter("I think Rev could unplug me if he wanted to. I'm a little scared.", client.user.avatarURL); //Revvy
+    else if(member.id == "341927044499636234") embed.setFooter("NO! I WON'T! You can't make me do this!", client.user.avatarURL); //Pandobot
     else embed.setFooter("I've been a good girl, right..?", client.user.avatarURL);
     
     //Easter Egg code for PandoBot
