@@ -37,7 +37,7 @@
   },
   "warncount": {
     "name": "warncount",
-    "description": "This command is used to change the number of warnings that a user has been assigned to them in the database. Please note it will not change the warnings in the GoogleDocs record in any way.",
+    "description": "This command is used to manually change the number of warnings that a user has been assigned to them in the database. Do not use unless you know what you're doing. Please note it will not change the warnings in the GoogleDocs record in any way.\n\n``[prefix]warn @user #`` ",
     "permissions": "isStaff"
 },
   "a": {
