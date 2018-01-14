@@ -10,7 +10,8 @@ const
     userApprove = require('./commands/userApprove'),
     userGuideMute = require('./commands/userGuideMute'),
     userSay = require('./commands/userSay'),
-    userWarn = require('./commands/userWarn')
+    userWarn = require('./commands/userWarn'),
+    userWarnCount = require('./commands/userWarnCount')
 
 module.exports = (client, message, prefix, env) => {
     
@@ -87,5 +88,11 @@ module.exports = (client, message, prefix, env) => {
         if(!commandPermissions(message.member, command)) return;
 
         userWarn(client, message);
+    }
+
+    if(command === "warncount") {
+        if(!commandPermissions(message.member, command)) return;
+
+        userWarnCount(client, message, args);
     }
 }

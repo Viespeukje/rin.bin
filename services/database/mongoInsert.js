@@ -77,8 +77,47 @@ const warningLog = async function (memid) {
   console.log("MongoInsert: Disconnected correctly from server...\n---");
 };
 
+const warningCount = async function (memid, count) {
+  let client;
+
+  try {
+    client = await MongoClient.connect(url);
+    console.log("---\nMongoInsert: Connected correctly to server...");
+
+    console.log(memid)
+
+    const db = client.db(dbName);
+        // Get the collection
+    const col = db.collection('warnings');
+    const docs = await col.find({memberid:memid}).next();
+    if (docs != null){
+      console.log(`Setting warnings for user with existing warnings.`)
+      let warnings = count;
+      await col.findOneAndUpdate({memberid : memid}, {$set: {warnCount: warnings}});   
+      console.log(`MongoInsert: altered warning counter for ${memid}. Counter set to ${count}...`);
+      return warnings;
+    }
+
+    else{
+      console.log(`Setting warnings for user with no existing warnings.`)
+      await col.insertOne({memberid : memid, warnCount : count});
+      let warnings = count;
+      console.log(`MongoInsert: altered warning counter for ${memid}. Counter set to ${count}...`);
+      return warnings;
+    }
+  } 
+  catch (err) {
+    console.log(err.stack);
+  }
+
+  // Close connection
+  client.close();
+  console.log("MongoInsert: Disconnected correctly from server...\n---");
+};
+
 
 module.exports = {
     guideMute: guideMute,
-    warningLog: warningLog
+    warningLog: warningLog,
+    warningCount: warningCount
 }

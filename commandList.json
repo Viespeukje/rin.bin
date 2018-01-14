@@ -35,6 +35,11 @@
       "description": "This command is used to warn the first user mentioned after the command. If no users are mentioned, it will fail. If more than one user is mentioned, the link will be generated for the first one only.",
       "permissions": "isStaff"
   },
+  "warncount": {
+    "name": "warncount",
+    "description": "This command is used to change the number of warnings that a user has been assigned to them in the database. Please note it will not change the warnings in the GoogleDocs record in any way.",
+    "permissions": "isStaff"
+},
   "a": {
     "name": "a",
     "description": "This command is an alternate version of the PandoBot command to send an approval dialogue for a user.",
