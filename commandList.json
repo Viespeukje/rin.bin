@@ -45,6 +45,11 @@
     "description": "This command is an alternate version of the PandoBot command to send an approval dialogue for a user.",
     "permissions": "isStaff"
 },
+"activelist": {
+    "name": "activelist",
+    "description": "This is a command designed to determine who has the activity level to be a candidate for ranks.",
+    "permissions": "isStaff"
+},
   "rolecheck": {
       "name": "rolecheck",
       "description": "This command is used to check the permissions of the first user mentioned after the command. If no users are mentioned, it will fail.",

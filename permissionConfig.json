@@ -4,7 +4,12 @@
     "isAdmin": ["Admin"],
     "isMod": ["Moderator"],
     "isStaff": ["Admin", "Moderator"],
-    "isGuide": ["Admin", "Moderator", "Guide"]
+    "isGuide": ["Admin", "Moderator", "Guide"],
+    "isKinkster": ["Kinkster"],
+    "isKinkess": ["Kinkess", "Kinkman"],
+    "isLewdster": ["Lewdster"],
+    "isInnocent": ["Innocent"],
+    "isUncharted": ["Uncharted"]
     },
   "ownerID": "129052371702513664",
   "selfID": "396062330397523968"

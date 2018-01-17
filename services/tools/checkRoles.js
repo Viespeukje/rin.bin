@@ -44,6 +44,42 @@ const isGuide = function (member) {
         .includes(roles.name)
     );
 }
+
+const isKinkster = function (member) {
+    return member.roles
+    .some(roles=>permissionConfig.roles.isKinkster
+        .includes(roles.name)
+    );
+}
+
+const isKinkess = function (member) {
+    return member.roles
+    .some(roles=>permissionConfig.roles.isKinkess
+        .includes(roles.name)
+    );
+}
+
+const isLewdster = function (member) {
+    return member.roles
+    .some(roles=>permissionConfig.roles.isLewdster
+        .includes(roles.name)
+    );
+}
+
+const isInnocent = function (member) {
+    return member.roles
+    .some(roles=>permissionConfig.roles.isInnocent
+        .includes(roles.name)
+    );
+}
+
+const isUncharted = function (member) {
+    return member.roles
+    .some(roles=>permissionConfig.roles.isUncharted
+        .includes(roles.name)
+    );
+}
+
 const isUser = function (member) {
     //Check if the person being put in is a User. If they weren't, it never would have gotten here.
     return true;
@@ -56,6 +92,11 @@ module.exports = {
     isMod: isMod,
     isStaff: isStaff,
     isGuide: isGuide,
+    isKinkster: isKinkster,
+    isKinkess: isKinkess,
+    isLewdster: isLewdster,
+    isInnocent: isInnocent,
+    isUncharted: isUncharted,
     isUser: isUser
 }
 

@@ -5,7 +5,7 @@ const
     mongoInsert = require('../database/mongoInsert')
      
 
-module.exports = async (client, message) => {
+module.exports = async (client, message, env) => {
 
     //Establishes mentioned user
     let member = message.mentions.users.first();
@@ -45,9 +45,9 @@ module.exports = async (client, message) => {
 
     //Add line for warnings, if applicable.
     if(warningCount == 1) embed.setColor(9807270)
-    if(warningCount == 2) embed.addField(`Prior Warnings`,`One warning link has been generated for this user.`).setColor(15844367)
-    if(warningCount == 3) embed.addField(`Prior Warnings`,`Two warning links have been generated for this user.`).setColor(15105570)
-    if(warningCount >= 4) embed.addField(`Prior Warnings`,`Three or more  warning links have been generated for this user.`).setColor(15158332)
+    if(warningCount == 2) embed.addField(`Prior Warnings (ID: ${member.id})`,`One warning link has been generated for this user.`).setColor(15844367)
+    if(warningCount == 3) embed.addField(`Prior Warnings (ID: ${member.id})`,`Two warning links have been generated for this user.`).setColor(15105570)
+    if(warningCount >= 4) embed.addField(`Prior Warnings (ID: ${member.id})`,`Three or more  warning links have been generated for this user.`).setColor(15158332)
 
     //Add footer.
     if(member.id == "396062330397523968") embed.setFooter("But I've b-been a good girl... ;~;", client.user.avatarURL); //Rin.bin
@@ -65,6 +65,8 @@ module.exports = async (client, message) => {
     //Easter Egg code for PandoBot
     if (member.username != "PandoBot") embed.addField('Click the link below to record a warning for this user...', `https://docs.google.com/forms/d/e/1FAIpQLSc3ceOm39F1fdJq8VkmWEsJJW3rHXawaHoejP9G34xgX9GP4w/viewform?usp=pp_url&entry.640187248=${memberstring}&entry.867163136=${memberID}&entry.687949428=${staffstring}&entry.692760464=${yearvar}-${monthvar}-${dayvar}&entry.1364186442\n`)
                                             .addField(`Click the link below to see all warnings recorded...`, `https://docs.google.com/spreadsheets/d/1PBd2cgpxZE9LdWqeEi39VY_2FOxGHPaGNy0l0bxs1i8/edit?usp=sharing`);
+
+    if(env != "test") message.guild.channels.find("name", "staff_lounge").send(`**Warning Recorded**: ${staffmember} has just warned user ${member}.`).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Direct message send failed to user ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
 
     message.author.send({embed}).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Direct message send failed to user ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
 }

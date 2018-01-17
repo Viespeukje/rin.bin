@@ -9,6 +9,7 @@ const
     userGems = require('./commands/userGems'),
     userApprove = require('./commands/userApprove'),
     userGuideMute = require('./commands/userGuideMute'),
+    userActiveList = require('./commands/userActiveList'),
     userSay = require('./commands/userSay'),
     userWarn = require('./commands/userWarn'),
     userWarnCount = require('./commands/userWarnCount')
@@ -84,15 +85,21 @@ module.exports = (client, message, prefix, env) => {
         userSay.codebox(message, args);
     }
 
+    if(command === "activelist") {
+        if(!commandPermissions(message.member, command)) return;
+
+        userActiveList(client, message);
+    }
+
     if(command === "warn") {
         if(!commandPermissions(message.member, command)) return;
 
-        userWarn(client, message);
+        userWarn(client, message, env);
     }
 
     if(command === "warncount") {
         if(!commandPermissions(message.member, command)) return;
 
-        userWarnCount(client, message, args);
+        userWarnCount(client, message);
     }
 }
