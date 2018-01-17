@@ -6,8 +6,7 @@ const
      
 
 module.exports = async (client, message, env) => {
-
-    //Establishes mentioned user
+        //Establishes mentioned user
     let member = message.mentions.users.first();
  
     //If var member is "falsy" and no users are mentioned, fail immediately.
@@ -66,7 +65,7 @@ module.exports = async (client, message, env) => {
     if (member.username != "PandoBot") embed.addField('Click the link below to record a warning for this user...', `https://docs.google.com/forms/d/e/1FAIpQLSc3ceOm39F1fdJq8VkmWEsJJW3rHXawaHoejP9G34xgX9GP4w/viewform?usp=pp_url&entry.640187248=${memberstring}&entry.867163136=${memberID}&entry.687949428=${staffstring}&entry.692760464=${yearvar}-${monthvar}-${dayvar}&entry.1364186442\n`)
                                             .addField(`Click the link below to see all warnings recorded...`, `https://docs.google.com/spreadsheets/d/1PBd2cgpxZE9LdWqeEi39VY_2FOxGHPaGNy0l0bxs1i8/edit?usp=sharing`);
 
-    if(env != "test") message.guild.channels.find("name", "staff_lounge").send(`**Warning Recorded**: ${staffmember} has just warned user ${member}.`).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Direct message send failed to user ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
+    if(env == "live") message.guild.channels.find("name", "staff_lounge").send(`**Warning Recorded**: ${staffmember} has just warned user ${member}.`).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Direct message send failed to user ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
 
     message.author.send({embed}).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Direct message send failed to user ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
 }
