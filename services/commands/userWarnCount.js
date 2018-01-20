@@ -21,6 +21,8 @@ module.exports = async (client, message, args) => {
         message.author.send("Please give a number when trying to set a warning count to a number. ``+warn @user #``");
         return;
     }
-    else  await mongoInsert.warningCount(member.id, args[1]);
-
+    else {
+        await mongoInsert.warningCount(member.id, args[1]);
+        if(env == "live") message.guild.channels.find("name", "staff_lounge").send(`**Warning Counter Change**: ${message.author} has just set the warning counter for user ${member} to ${args[1]}`).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Direct message send failed to user ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
     }
+}
