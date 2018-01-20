@@ -100,6 +100,6 @@ module.exports = (client, message, prefix, env) => {
     if(command === "warncount") {
         if(!commandPermissions(message.member, command)) return;
 
-        userWarnCount(client, message);
+        userWarnCount(client, message, args, env);
     }
 }

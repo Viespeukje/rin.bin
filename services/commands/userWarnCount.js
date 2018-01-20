@@ -5,10 +5,10 @@ const
     mongoInsert = require('../database/mongoInsert')
      
 
-module.exports = async (client, message, args) => {
+module.exports = async (client, message, args, env) => {
      //Establishes mentioned user
      let member = message.mentions.users.first();
- 
+     
      //If var member is "falsy" and no users are mentioned, fail immediately.
      if(!member){
          console.log(`${message.author.username}#${message.author.discriminator} attempted to generate a warning link for a null user.`)
