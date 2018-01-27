@@ -22,37 +22,37 @@ module.exports = (client, message, prefix) => {
         },
         {
             name: "How do I check my gem balance?",
-            value: "Go to the <#317789722787446784> channel and type: ``/gems``\n"
-        },
+            value: "Go to the <#317789722787446784> channel and type: ``/gems``. If you want to know more about ways you can use them, head over to the <#317789722787446784> channel.\n"
+        }
         // {
         // 	name: "How do I get gems?",
         //     value: "Gems can be earned by roleplaying, chatting, or posting images in the image boards. Different channels have different gem gains, however.\n\n**Main Chat**: 0.01 gems per post.\n**General RP Channels**: 0.02 gems per word.\n**Casual RP Channels**: 0.02 gems per post.\n**Longform RP Channels**: 0.02 gems per word.\n**Private RP Channels**: 0.02 gems per word.\n**Porn Image Channels**: 0.05 gems per image. Max 20 per channel per hour.\n"
         // },
-        {
-            name: "What do vanity ranks do?",
-            value: "They look pretty, mostly. However any rank higher than Innocent gains access to the selfies channel.\n"
-        },
-        {
-            name: "How do I upgrade my vanity rank?",
-            value: "Go to the <#317789722787446784> channel and type: ``/upgrade``\n"
-        },
-        {
-            name: "How much do the ranks cost?",
-            value: "An exact amount can be found posted in the <#317789722787446784> channel.\n"
-        },
-        {
-            name: "How do I give someone gems?",
-            value: "Go to the <#317789722787446784> channel and type: ``/give @username GemNumber``\n"
-        },
-        {
-            name: "Why can I not trade gems?",
-            value: "Both parties in an exchange must be at least Tempted rank.\n"
-        }
+        // {
+        //     name: "What do vanity ranks do?",
+        //     value: "They look pretty, mostly. However any rank higher than Innocent gains access to the selfies channel.\n"
+        // },
+        // {
+        //     name: "How do I upgrade my vanity rank?",
+        //     value: "Go to the <#317789722787446784> channel and type: ``/upgrade``\n"
+        // },
+        // {
+        //     name: "How much do the ranks cost?",
+        //     value: "An exact amount can be found posted in the <#317789722787446784> channel.\n"
+        // },
+        // {
+        //     name: "How do I give someone gems?",
+        //     value: "Go to the <#317789722787446784> channel and type: ``/give @username GemNumber``\n"
+        // },
+        // {
+        //     name: "Why can I not trade gems?",
+        //     value: "Both parties in an exchange must be at least Tempted rank.\n"
+        // }
         ],
         //timestamp: new Date(),
         footer: {
           icon_url: client.user.avatarURL,
-          text: "I've been a good girl, right..?"
+          text: "W-why do all of you hate me so much..? I was just trying to help... Q~Q"
         }
       }
     }).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Embed send failed in ${message.channel.name} when "${message}" was sent by ${message.author.username}#${message.author.discriminator}. \n>>${err}`));

@@ -10,6 +10,7 @@ const
     voteManager = require('./services/voteManager'), //Evaluate and run votes
     startupDebug = require('./services/tools/startupDebug'),
     guildChange = require('./services/tools/guildChange'), //Startup Debug Functions
+    //reactRoles = require('./services/tools/reactRoles'), // WIP THIS CODE IS INACTIVE.
     webserver = require('./services/webserver'),//Heroku webserver launch code
     mongoConnect = require('./services/database/mongoConnect'),//MongoDB database
     mongoFind = require('./services/database/mongoFind')//Pull from a database
@@ -58,8 +59,14 @@ client.on("message", message => {
 
 //This event triggers when a reaction is added
 client.on("messageReactionAdd", async (reaction, user) => {
+    
     //If the message being reacted to was not posted by Rin.bin, ignore it.
     if (!reaction.message.author.username == "Rin.bin") return; 
+
+    //Check if the client needs to add a role to a user.
+    // WIP THIS CODE IS INACTIVE.
+    // reactRoles(reaction);
+
     //Fetch a constant that contains the database information for the message being reacted to.
     const voteInfo = await mongoFind.voteInfo(reaction);
     //If the database info does not exist, reject it entirely.
