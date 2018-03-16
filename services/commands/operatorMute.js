@@ -21,11 +21,12 @@ module.exports = (client, message) => {
     //console.log(message.id)
     const embed = new Discord.RichEmbed()
         .addField(`Operator Mute`, `Operator <@${message.author.id}> muted user <@${member.id}> .`)
-        .setColor(15844367)
+        .setColor(15158332)
         .setTimestamp()
         .setFooter("I've been a good girl, right..?", client.user.avatarURL);
 
 
+    message.guild.channels.find("name", "operator_logs").send({embed}).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Tried to post an operator mute. \n>>${err}`));
     message.guild.channels.find("name", "staff_lounge").send({embed}).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Tried to post an operator mute. \n>>${err}`));
-       
+   
 }

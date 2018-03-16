@@ -22,7 +22,6 @@ module.exports = (client, message, args) => {
         message.author.send("This user is not uncharted.");
         return;
     }
-    else member.removeRole(message.guild.roles.find("name", "Uncharted")).catch(console.error);
 
     AssignedRoles.push(message.guild.roles.find("name", "Innocent"));
     AssignedRoles.push(message.guild.roles.find("name", "Kinkster"));
@@ -35,14 +34,16 @@ module.exports = (client, message, args) => {
     member.addRoles(AssignedRoles).catch(console.error);
     message.channel.send(`Your intro has been approved, ${member}! You can now assign yourself access to additional channels in <#289902600701345792> by following the instructions. To start looking for RP partners, visit <#286880584725299201>. If you have any questions on how to get started, ask one of the people listed under 'Guides' in the member list!`)
 
+    if(checkRoles.isUncharted(member)){
+        member.removeRole(message.guild.roles.find("name", "Uncharted")).catch(console.error);
+    }
 
     const embed = new Discord.RichEmbed()
-        .addField(`Operator Mute`, `Operator <@${message.author.id}> approved user <@${member.id}> .`)
-        .setColor(15844367)
+        .addField(`Operator Approve`, `Operator <@${message.author.id}> approved user <@${member.id}> .`)
+        .setColor(3066993)
         .setTimestamp()
         .setFooter("I've been a good girl, right..?", client.user.avatarURL);
 
-
-    message.guild.channels.find("name", "staff_lounge").send({embed}).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Tried to post an operator mute. \n>>${err}`));
+    message.guild.channels.find("name", "operator_logs").send({embed}).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Tried to post an operator mute. \n>>${err}`));
 
 }
