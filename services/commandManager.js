@@ -9,6 +9,9 @@ const
     userGems = require('./commands/userGems'),
     userApprove = require('./commands/userApprove'),
     userGuideMute = require('./commands/userGuideMute'),
+    operatorMute = require('./commands/operatorMute'),
+    operatorReset = require('./commands/operatorReset'),
+    operatorApprove = require('./commands/operatorApprove'),
     userActiveList = require('./commands/userActiveList'),
     userSay = require('./commands/userSay'),
     userWarn = require('./commands/userWarn'),
@@ -55,10 +58,28 @@ module.exports = (client, message, prefix, env) => {
         userGems(client, message);
     }
 
-    if(command === "guidemute") {
+    // if(command === "guidemute") {
+    //     if(!commandPermissions(message.member, command)) return;
+
+    //     userGuideMute(client, message);
+    // }
+
+    if(command === "opapprove") {
         if(!commandPermissions(message.member, command)) return;
 
-        userGuideMute(client, message);
+        operatorApprove(client, message, args);
+    }
+
+    if(command === "opmute") {
+        if(!commandPermissions(message.member, command)) return;
+
+        operatorMute(client, message);
+    }
+
+    if(command === "opreset") {
+        if(!commandPermissions(message.member, command)) return;
+
+        operatorReset(client, message);
     }
 
     if(command === "playing") {

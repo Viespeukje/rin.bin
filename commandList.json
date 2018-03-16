@@ -15,6 +15,21 @@
       "description": "This alternate form of say will put the text in a codebox.",
       "permissions": "isBotOwner"
   },
+  "opapprove": {
+    "name": "opapprove",
+    "description": "An operator command used to approve a user. ``+opapprove @user gender sexuality``",
+    "permissions": "isOperator"
+  },
+  "opreset": {
+    "name": "opreset",
+    "description": "An operator command used to reset a channel ``+opreset``",
+    "permissions": "isOperator"
+  },
+  "opmute": {
+    "name": "opmute",
+    "description": "An operator command used to mute a user in all conversation channels. Does not include RP channels. ``+opmute @user``",
+    "permissions": "isOperator"
+  },
   "guidemute": {
     "name": "guidemute",
     "description": "This command is used to initiate a guide mute vote. These votes require two votes in favor to pass.",

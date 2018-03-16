@@ -45,6 +45,13 @@ const isGuide = function (member) {
     );
 }
 
+const isOperator = function (member) {
+    return member.roles
+    .some(roles=>permissionConfig.roles.isOperator
+        .includes(roles.name)
+    );
+}
+
 const isKinkster = function (member) {
     return member.roles
     .some(roles=>permissionConfig.roles.isKinkster
@@ -92,6 +99,7 @@ module.exports = {
     isMod: isMod,
     isStaff: isStaff,
     isGuide: isGuide,
+    isOperator: isOperator,
     isKinkster: isKinkster,
     isKinkess: isKinkess,
     isLewdster: isLewdster,
