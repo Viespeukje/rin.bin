@@ -18,10 +18,10 @@ module.exports = (client, message, args) => {
         message.author.send("Please mention a valid member of this server.");
         return;
     }
-    if(!checkRoles.isUncharted(member)){
-        message.author.send("This user is not uncharted.");
-        return;
-    }
+    // if(!checkRoles.isUncharted(member)){
+    //     message.author.send("This user is not uncharted.");
+    //     return;
+    // }
 
     AssignedRoles.push(message.guild.roles.find("name", "Innocent"));
     AssignedRoles.push(message.guild.roles.find("name", "Kinkster"));
