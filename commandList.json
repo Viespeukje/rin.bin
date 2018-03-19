@@ -15,6 +15,11 @@
       "description": "This alternate form of say will put the text in a codebox.",
       "permissions": "isBotOwner"
   },
+  "radd": {
+    "name": "radd",
+    "description": "An operator command used to add a role manually. ``+radd @user role``",
+    "permissions": "isOperator"
+  },
   "opapprove": {
     "name": "opapprove",
     "description": "An operator command used to approve a user. ``+opapprove @user gender sexuality``",

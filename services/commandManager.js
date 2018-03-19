@@ -9,6 +9,7 @@ const
     userGems = require('./commands/userGems'),
     userApprove = require('./commands/userApprove'),
     userGuideMute = require('./commands/userGuideMute'),
+    operatorRoleAdd = require('./commands/operatorRoleAdd'),
     operatorMute = require('./commands/operatorMute'),
     operatorReset = require('./commands/operatorReset'),
     operatorApprove = require('./commands/operatorApprove'),
@@ -63,6 +64,12 @@ module.exports = (client, message, prefix, env) => {
 
     //     userGuideMute(client, message);
     // }
+
+    if(command === "radd") {
+        if(!commandPermissions(message.member, command)) return;
+
+        operatorRoleAdd(client, message, args);
+    }
 
     if(command === "opapprove") {
         if(!commandPermissions(message.member, command)) return;
