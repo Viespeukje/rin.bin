@@ -20,6 +20,11 @@
     "description": "An operator command used to add a role manually. ``+radd @user role``",
     "permissions": "isOperator"
   },
+  "rremove": {
+    "name": "rremove",
+    "description": "An operator command used to remove a role manually. ``+rremove @user role``",
+    "permissions": "isOperator"
+  },
   "opapprove": {
     "name": "opapprove",
     "description": "An operator command used to approve a user. ``+opapprove @user gender sexuality``",

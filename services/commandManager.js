@@ -10,6 +10,7 @@ const
     userApprove = require('./commands/userApprove'),
     userGuideMute = require('./commands/userGuideMute'),
     operatorRoleAdd = require('./commands/operatorRoleAdd'),
+    operatorRoleRemove = require('./commands/operatorRoleRemove'),
     operatorMute = require('./commands/operatorMute'),
     operatorReset = require('./commands/operatorReset'),
     operatorApprove = require('./commands/operatorApprove'),
@@ -69,6 +70,11 @@ module.exports = (client, message, prefix, env) => {
         if(!commandPermissions(message.member, command)) return;
 
         operatorRoleAdd(client, message, args);
+    }
+    if(command === "rremove") {
+        if(!commandPermissions(message.member, command)) return;
+
+        operatorRoleRemove(client, message, args);
     }
 
     if(command === "opapprove") {
