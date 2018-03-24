@@ -15,7 +15,7 @@ module.exports = (client, message) => {
         return;
     }
 
-    let role = message.guild.roles.find("name", "🔇");
+    let role = message.guild.roles.find("name", "mute_chat");
     member.addRole(role);   
 
     //console.log(message.id)
