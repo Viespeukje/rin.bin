@@ -4,7 +4,7 @@ const
     Discord = require("discord.js"),
     checkRoles = require('../tools/checkRoles')
 
-const AllowedRoles = ["Male", "Female", "Femboy", "Trap", "Nonbinary", "Genderfluid", "Futa", "Straight", "Bisexual", "Bicurious", "Gay", "Lesbian", "Asexual", "Pansexual"]
+const AllowedRoles = ["Male", "Female", "Femboy", "Trap", "Nonbinary", "Genderfluid", "Futa", "Straight", "Bisexual", "Bicurious", "Gay", "Lesbian", "Asexual", "Pansexual", "Dom", "Sub", "Switch"]
 const AssignedRoles = []
 
 module.exports = (client, message, args) => {
@@ -14,7 +14,7 @@ module.exports = (client, message, args) => {
  
     //Failure Conditions
     if(!member){
-        console.log(`${message.author.username}#${message.author.discriminator} attempted to mute a null user.`)
+        console.log(`${message.author.username}#${message.author.discriminator} attempted to add roles to a null user.`)
         message.author.send("Please mention a valid member of this server.");
         return;
     }
@@ -22,13 +22,14 @@ module.exports = (client, message, args) => {
     //     message.author.send("This user is not uncharted.");
     //     return;
     // }
+    args.shift();
 
     AssignedRoles.push(message.guild.roles.find("name", "Innocent"));
     AssignedRoles.push(message.guild.roles.find("name", "Kinkster"));
 
     args.forEach(function(element) {
-    if (AllowedRoles.includes(element)) AssignedRoles.push(message.guild.roles.find("name", element));
-    else console.log(`${element} was not added.`);
+        if (AllowedRoles.includes(element)) AssignedRoles.push(message.guild.roles.find("name", element));
+        else message.author.send(`[ ${element} ] was not added to the user because it is not a permitted role. Remember, roles are case sensitive!`);
   });
 
     member.addRoles(AssignedRoles).catch(console.error);

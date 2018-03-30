@@ -4,7 +4,7 @@ const
     Discord = require("discord.js"),
     checkRoles = require('../tools/checkRoles')
 
-const AllowedRoles = ["Uncharted", "Male", "Female", "Femboy", "Trap", "Nonbinary", "Genderfluid", "Futa", "Straight", "Bisexual", "Bicurious", "Gay", "Lesbian", "Asexual", "Pansexual", "Kinkster", "Innocent", "Dom", "Sub", "Switch", "F", "D", "NH", "K", "Porn", "Events"]
+const AllowedRoles = ["Uncharted", "Male", "Female", "Femboy", "Trap", "Nonbinary", "Genderfluid", "Futa", "Straight", "Bisexual", "Bicurious", "Gay", "Lesbian", "Asexual", "Pansexual", "Kinkster", "Innocent", "Dom", "Sub", "Switch", "F", "D", "NH", "K", "Porn", "Events", "RPG"]
 const AssignedRoles = []
 
 module.exports = (client, message, args) => {
@@ -32,5 +32,5 @@ module.exports = (client, message, args) => {
 
 
     }
-    else console.log(`${args[1]} was not added.`);
+    else message.author.send(`[ ${element} ] was not removed from the user because it is not a permitted role. Remember, roles are case sensitive!`);
 }
