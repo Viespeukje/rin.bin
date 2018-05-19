@@ -80,6 +80,13 @@ const isInnocent = function (member) {
     );
 }
 
+const isDeputy = function (member) {
+    return member.roles
+    .some(roles=>permissionConfig.roles.isDeputy
+        .includes(roles.name)
+    );
+}
+
 const isUncharted = function (member) {
     return member.roles
     .some(roles=>permissionConfig.roles.isUncharted
@@ -105,6 +112,7 @@ module.exports = {
     isLewdster: isLewdster,
     isInnocent: isInnocent,
     isUncharted: isUncharted,
+    isDeputy: isDeputy,
     isUser: isUser
 }
 

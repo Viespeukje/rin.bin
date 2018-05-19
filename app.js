@@ -10,6 +10,7 @@ const
     voteManager = require('./services/voteManager'), //Evaluate and run votes
     startupDebug = require('./services/tools/startupDebug'),
     guildChange = require('./services/tools/guildChange'), //Startup Debug Functions
+    checkRoles = require('./services/tools/checkRoles'),
     //reactRoles = require('./services/tools/reactRoles'), // WIP THIS CODE IS INACTIVE.
     webserver = require('./services/webserver'),//Heroku webserver launch code
     mongoConnect = require('./services/database/mongoConnect'),//MongoDB database
@@ -55,6 +56,10 @@ client.on("guildDelete", guild => {
 //This event triggers when the bot recieves a message
 client.on("message", message => {
     commandManager(client, message, prefix, env);
+});
+
+client.on('guildMemberAdd', member => {
+    member.guild.channels.get('279584314856046592').send(`Welcome to the Kinkdom, ${member}! To get started, please read the <#279597756887203840> and submit an introduction by following the instructions in <#280313739235033088>. Once approved by a staff member, you'll be able to access more channels. If you have any questions on how to get started, please feel free to ask in main chat or DM one of our Operators in the member list!`); 
 });
 
 //This event triggers when a reaction is added
