@@ -17,11 +17,18 @@ const
     userActiveList = require('./commands/userActiveList'),
     userSay = require('./commands/userSay'),
     userWarn = require('./commands/userWarn'),
+    checkSpam = require('./tools/checkSpam'),
     userWarnCount = require('./commands/userWarnCount')
 
 module.exports = (client, message, prefix, env) => {
     
     if(message.author.bot) return; //Any bot inputs below this line will be ignored.
+
+    if(checkRoles.isUncharted(message.member)){
+        if(message.mentions.roles.first()) checkSpam.spamAdd(client, message, env);
+        else if(message.mentions.members.first()) checkSpam.spamAdd(client, message, env);
+        else checkSpam.spamClear(client, message, env);
+    }
 
     if(message.content
         .indexOf(prefix) !== 0) return; //Any inputs below this line that do not begin with the prefix will be ignored
