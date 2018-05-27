@@ -57,6 +57,7 @@ module.exports = async (client, message, env) => {
     else if(member.id == "172534517284732928") embed.setFooter("Arita has a nice bot too.. Do I have to?", client.user.avatarURL); //Arita
     else if(member.id == "312697858287468544") embed.setFooter("Tal seems like a nice person... What could he have done wrong?", client.user.avatarURL); //Tal
     else if(member.id == "291853266764038145") embed.setFooter("Poor blepper... go easy on her?", client.user.avatarURL); //Ally
+    else if(member.id == "216185780173930496") embed.setFooter("B-but... those headpats... they were from a criminal all along?", client.user.avatarURL); //Fiendess
     else if(member.id == "140963430743015424") embed.setFooter("Don't make me warn pancakes, he'll get me all sticky...", client.user.avatarURL); //Pancakes
     else if(member.id == "279395206024003587") embed.setFooter("I think Rev could unplug me if he wanted to. I'm a little scared.", client.user.avatarURL); //Revvy
     else if(member.id == "341927044499636234") embed.setFooter("NO! I WON'T! You can't make me do this!", client.user.avatarURL); //Pandobot

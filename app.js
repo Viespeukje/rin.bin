@@ -43,6 +43,10 @@ client.on("ready", () => {
     client.user.setGame(`with her fluffy tail`);
 });
 
+// client.on("messageDelete", (messageDelete) => {
+//     messageDelete.channel.send(messageDelete.content.split(" ").length)
+// });
+
 //This event triggers when the bot joins a guild.
 client.on("guildCreate", guild => {
     guildChange.joined(guild);

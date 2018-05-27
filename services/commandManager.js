@@ -15,6 +15,9 @@ const
     operatorReset = require('./commands/operatorReset'),
     operatorApprove = require('./commands/operatorApprove'),
     userActiveList = require('./commands/userActiveList'),
+    trophyNew = require('./commands/trophyNew'),
+    trophyAbout = require('./commands/trophyAbout'),
+    trophyGive = require('./commands/trophyGive'),
     userSay = require('./commands/userSay'),
     userWarn = require('./commands/userWarn'),
     checkSpam = require('./tools/checkSpam'),
@@ -142,5 +145,21 @@ module.exports = (client, message, prefix, env) => {
         if(!commandPermissions(message.member, command)) return;
 
         userWarnCount(client, message, args, env);
+    }
+
+    if(command === "trophynew") {
+        if(!commandPermissions(message.member, command)) return;
+
+        trophyNew(client, message, args);
+    }
+    if(command === "trophyabout") {
+        if(!commandPermissions(message.member, command)) return;
+
+        trophyAbout(client, message, args);
+    }
+    if(command === "trophygive") {
+        if(!commandPermissions(message.member, command)) return;
+
+        trophyGive(client, message, args);
     }
 }

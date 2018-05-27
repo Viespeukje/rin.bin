@@ -75,6 +75,21 @@
     "description": "This is a command designed to determine who has the activity level to be a candidate for ranks.",
     "permissions": "isStaff"
 },
+"trophynew": {
+    "name": "trophynew",
+    "description": "WIP Command. Used to create a new predefined trophy.",
+    "permissions": "isStaff"
+},
+"trophygive": {
+    "name": "trophygive",
+    "description": "WIP Command. Used to give a predefined trophy to a user.",
+    "permissions": "isStaff"
+},
+"trophyabout": {
+    "name": "trophyabout",
+    "description": "WIP Command. Used to give information on a trophy with a given ID.",
+    "permissions": "isOperator"
+},
   "rolecheck": {
       "name": "rolecheck",
       "description": "This command is used to check the permissions of the first user mentioned after the command. If no users are mentioned, it will fail.",
