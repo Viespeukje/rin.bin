@@ -61,6 +61,35 @@ const about = async function(findID) {
     //If the doc is not found, return false to be rejected.
     if(!docs) return false;
 
+    //console.log(docs);
+
+    //If the doc is  found, return it.
+    return docs;
+  } 
+  catch (err) {
+    console.log(err.stack);
+  }
+
+  // Close connection
+  client.close();
+};
+
+const user = async function(findID) {
+  let client;
+
+  try {
+    client = await MongoClient.connect(url);
+
+    const db = client.db(dbName);
+
+    // Get the collection
+    const col = db.collection('trophyOwned');
+
+    const docs = await col.find({'memberID': findID}).next();
+
+    //If the doc is not found, return false to be rejected.
+    if(!docs) return false;
+
     console.log(docs);
 
     //If the doc is  found, return it.
@@ -123,5 +152,6 @@ const give = async function (membID, tropID) {
 module.exports = {
     create: create,
     about: about,
-    give: give
+    give: give,
+    user: user
 }

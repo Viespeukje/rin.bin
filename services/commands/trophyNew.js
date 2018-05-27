@@ -17,7 +17,7 @@ module.exports = (client, message, args) => {
     var trophyCreator = message.author.id;
     var trophyDate = message.createdAt;
     
-    message.channel.send(`The following new ${trophyRarity} rarity trophy was created by <@${trophyCreator}> on ${trophyDate}\n\n**${trophyName}** [${trophyID}]\n\n${trophyReason}\n\n*${trophyFlavor}*\n\n${trophyImage}`);
+    message.guild.channels.find("name", "trophy_log").send(`The following new ${trophyRarity} rarity trophy was created by <@${trophyCreator}> on ${trophyDate}\n\n**${trophyName}** [${trophyID}]\n\n${trophyReason}\n\n*${trophyFlavor}*\n\n${trophyImage}`);
 
     const trophyData = [trophyName, trophyID, trophyRarity, trophyReason, trophyFlavor, trophyImage, message.author.id, message.createdAt];
 
