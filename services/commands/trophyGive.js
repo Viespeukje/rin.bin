@@ -18,13 +18,13 @@ module.exports = async (client, message, args) => {
 
 
     if(trophyData.trophyRarity == "Legendary") var rarityColor = "15844367"
-    else if(trophyData.trophyRarity == "Epic") var rarityColor = "10181046"
-    else if(trophyData.trophyRarity == "Rare") var rarityColor = "3447003"
-    else if(trophyData.trophyRarity == "Uncommon") var rarityColor = "3066993"
-    else if(trophyData.trophyRarity == "Common") var rarityColor = "0"
-    else if(trophyData.trophyRarity == "Stupidly Common") var rarityColor = "12370112"
-    else if(trophyData.trophyRarity == "Fuck You") var rarityColor = "15158332"
-    else var rarityColor = "0"
+    else if(trophyData.trophyRarity == "Epic") var rarityColor = "12390624"
+    else if(trophyData.trophyRarity == "Rare") var rarityColor = "4886754"
+    else if(trophyData.trophyRarity == "Uncommon") var rarityColor = "8311585"
+    else if(trophyData.trophyRarity == "Common") var rarityColor = "16777215"
+    else if(trophyData.trophyRarity == "Stupidly Common") var rarityColor = "10197915"
+    else if(trophyData.trophyRarity == "Fuck You") var rarityColor = "13632027"
+    else var rarityColor = "16777215"
 
     message.channel.send(`${member} has been assigned a new trophy by ${message.author}!`)
     message.channel.send({
