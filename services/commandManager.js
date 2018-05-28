@@ -19,6 +19,7 @@ const
     trophyAbout = require('./commands/trophyAbout'),
     trophyGive = require('./commands/trophyGive'),
     trophyList = require('./commands/trophyList'),
+    trophyRoleGive = require('./commands/trophyRoleGive'),
     userSay = require('./commands/userSay'),
     userWarn = require('./commands/userWarn'),
     checkSpam = require('./tools/checkSpam'),
@@ -167,5 +168,10 @@ module.exports = (client, message, prefix, env) => {
         if(!commandPermissions(message.member, command)) return;
 
         trophyList(client, message, args);
+    }
+    if(command === "role2trophy") {
+        if(!commandPermissions(message.member, command)) return;
+
+        trophyRoleGive(client, message, args);
     }
 }
