@@ -78,27 +78,27 @@
 "trophynew": {
     "name": "trophynew",
     "description": "WIP Command. Used to create a new predefined trophy.",
-    "permissions": "isStaff"
+    "permissions": "isOperator"
 },
 "trophygive": {
     "name": "trophygive",
     "description": "WIP Command. Used to give a predefined trophy to a user.",
-    "permissions": "isStaff"
+    "permissions": "isOperator"
 },
 "trophyabout": {
     "name": "trophyabout",
     "description": "WIP Command. Used to give information on a trophy with a given ID.",
-    "permissions": "isStaff"
+    "permissions": "isOperator"
 },
 "trophies": {
     "name": "trophies",
-    "description": "WIP Command. Lists all trophies owned by a given user. If no user is given, then the author of the command is used.",
-    "permissions": "isStaff"
+    "description": "Lists all trophies owned by a given user. If no user is given, then the author of the command is used. ``+trophies @user``",
+    "permissions": "isUser"
 },
 "role2trophy": {
     "name": "role2trophy",
     "description": "WIP Command. Gives a trophy to all users with a given role.",
-    "permissions": "isStaff"
+    "permissions": "isOwner"
 },
   "rolecheck": {
       "name": "rolecheck",
