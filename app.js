@@ -72,6 +72,11 @@ client.on("messageReactionAdd", async (reaction, user) => {
     
     //If the message being reacted to was not posted by Rin.bin, ignore it.
     if (!reaction.message.author.username == "Rin.bin") return; 
+    if (reaction.message.content == "React to this message with 👍 to assign a role and 👎 to remove the role."){
+        if(reaction.emoji.name == "👍") reaction.message.channel.send("Assigning a role...");
+        else if(reaction.emoji.name == "👎") reaction.message.channel.send("Removing a role...");
+        else return;
+    };
 
     //Check if the client needs to add a role to a user.
     // WIP THIS CODE IS INACTIVE.

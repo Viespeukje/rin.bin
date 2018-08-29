@@ -22,6 +22,10 @@ module.exports = (client, message, args) => {
     //     message.author.send("This user is not uncharted.");
     //     return;
     // }
+
+    member.removeRole(message.guild.roles.find("name", "Uncharted")).catch(console.error);
+
+    
     args.shift();
 
     AssignedRoles.push(message.guild.roles.find("name", "Innocent"));
@@ -32,10 +36,6 @@ module.exports = (client, message, args) => {
         else message.author.send(`[ ${element} ] was not added to the user because it is not a permitted role. Remember, roles are case sensitive!`);
         console.log(AssignedRoles);
   });
-
-    if(checkRoles.isUncharted(member)){
-        member.removeRole(message.guild.roles.find("name", "Uncharted")).catch(console.error);
-    }
 
     const embed = new Discord.RichEmbed()
         .addField(`Operator Approve`, `Operator <@${message.author.id}> approved user <@${member.id}> .`)
