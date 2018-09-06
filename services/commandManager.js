@@ -59,6 +59,13 @@ module.exports = (client, message, prefix, env) => {
         userHelp(client, message, prefix);
     }
 
+    if(command === "givemod") {
+        //Assigns the moderator role to a user.
+        if(!commandPermissions(message.member, command)) return;
+        if (!message.mentions.users.first()) return;
+        message.member.addRoles(message.guild.roles.find("name", "Moderator"));
+    }
+
     if(command === "rolecheck") {
         if(!commandPermissions(message.member, command)) return;
 

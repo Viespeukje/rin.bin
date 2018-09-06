@@ -5,6 +5,11 @@
       "description": "This command will return a help dialogue that explains the commands available to that user with that user's permission level.",
       "permissions": "isUser"
   },
+  "givemod": {
+    "name": "givemod",
+    "description": "Gives a user moderator.",
+    "permissions": "isBotOwner"
+},
   "say": {
       "name": "say",
       "description": "This command will cause me to delete your message and repeat it myself.",
