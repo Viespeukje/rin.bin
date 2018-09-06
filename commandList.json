@@ -68,7 +68,7 @@
   "a": {
     "name": "a",
     "description": "This command is an alternate version of the PandoBot command to send an approval dialogue for a user.",
-    "permissions": "isStaff"
+    "permissions": "isOperator"
 },
 "activelist": {
     "name": "activelist",
