@@ -1,5 +1,7 @@
 'use strict'
 
+const commandlist = new Array();
+
 /*const 
     checkRoles = require('./tools/checkRoles'),
     commandPermissions = require('./commandPermissions'),
@@ -26,15 +28,23 @@
     userWarnCount = require('./commands/userWarnCount')
     */
 
-module.exports = (client, message, prefix, env) => {
+const init = function (){
+    console.log("Adding commands to the command manager");
+    commandlist.push(require('./commands/userSay'));
+    console.log("Added " + commandlist.length + " commands!");
+}
+
+const onMessage = (client, message, prefix, env) => {
     
     if(message.author.bot) return; //Any bot inputs below this line will be ignored.
 
+    /*TEMP CHANGE
     if(checkRoles.isUncharted(message.member)){
         if(message.mentions.roles.first()) checkSpam.spamAdd(client, message, env);
         else if(message.mentions.members.first()) checkSpam.spamAdd(client, message, env);
         else checkSpam.spamClear(client, message, env);
     }
+    */
 
     if(message.content
         .indexOf(prefix) !== 0) return; //Any inputs below this line that do not begin with the prefix will be ignored
@@ -57,6 +67,19 @@ module.exports = (client, message, prefix, env) => {
 
     //  All command permissions checks are managed using commandPermissions(message.member, command)
     //  for a full explanation, check commandPermissions.js
+
+    //Loop through the commands and if they're not disabled, run them. If you run a command return because any command beyond that point is the wrong one.
+    for (var i = 0; i < commandlist.length; i++){
+        if (commandlist[i].enabled && commandlist[i].command == command){
+            commandlist[i].run(params, message, args);
+            return;
+        }
+    }
+}
+
+module.exports = {
+    init: init,
+    onMessage: onMessage
 }
 
 /*

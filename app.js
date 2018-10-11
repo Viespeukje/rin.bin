@@ -39,6 +39,8 @@ client.login(token);
 client.on("ready", () => {
     startupDebug.discord(client);
 
+    //Initialize the command manager
+    commandManager.init();
     //Run webserver
     //TEMP CHANGE webserver();
 
@@ -61,7 +63,7 @@ client.on("guildDelete", guild => {
 
 //This event triggers when the bot recieves a message
 client.on("message", message => {
-    commandManager(client, message, prefix, env);
+    commandManager.onMessage(client, message, prefix, env);
 });
 
 client.on('guildMemberAdd', member => {

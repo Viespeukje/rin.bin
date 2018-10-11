@@ -23,15 +23,16 @@ params = {
 
 */
 
-//Called if you need to initialize a command
-const init = undefined
+//A function for logging. Called immediately after Run if not undefined
+const log = function(params, message, args) {
 
+}
+
+//Send information you need to initialize under ini. Called when registered.
+const init = function(ini){
+
+}
 
 module.exports = {
-    command: command,
-    permissions: permissions,
-    enabled: enabled,
-    help: help,
-    run: run,
-    init: init
+
 }
