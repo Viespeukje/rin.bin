@@ -1,8 +1,8 @@
 'use strict'
 
-const 
+const
     commandList = require('../commandList'),
-    checkRoles = require('./tools/checkRoles')   
+    checkRoles = require('./tools/checkRoles')
 
 module.exports = (member, command) => {
 
