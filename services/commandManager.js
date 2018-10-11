@@ -31,6 +31,7 @@ const commandlist = new Array();
 const init = function (){
     console.log("Adding commands to the command manager");
     commandlist.push(require('./commands/userSay'));
+    commandlist.push(require('./commands/userCodeSay'));
     console.log("Added " + commandlist.length + " commands!");
 }
 
@@ -79,7 +80,8 @@ const onMessage = (client, message, prefix, env) => {
 
 module.exports = {
     init: init,
-    onMessage: onMessage
+    onMessage: onMessage,
+    commandlist: commandlist
 }
 
 /*
