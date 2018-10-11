@@ -1,6 +1,6 @@
 'use strict'
 
-const 
+/*const 
     checkRoles = require('./tools/checkRoles'),
     commandPermissions = require('./commandPermissions'),
     commandList = require('../commandList'),
@@ -24,6 +24,7 @@ const
     userWarn = require('./commands/userWarn'),
     checkSpam = require('./tools/checkSpam'),
     userWarnCount = require('./commands/userWarnCount')
+    */
 
 module.exports = (client, message, prefix, env) => {
     
@@ -46,14 +47,21 @@ module.exports = (client, message, prefix, env) => {
     const command = args //Defines command as the first arg, but lower case
         .shift()
         .toLowerCase();
+
+    const params = {
+        client: client,
+        env: env
+    }
    
     if(!message.member) return;   //Any command that runs a role check MUST be below this line.
 
     //  All command permissions checks are managed using commandPermissions(message.member, command)
     //  for a full explanation, check commandPermissions.js
+}
 
-
+/*
     if(commandList[command]) message.delete().catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Message deletion failed in ${message.channel.name} when "${message}" was sent by ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
+
 
     if(command === "help") {
         userHelp(client, message, prefix);
@@ -182,4 +190,4 @@ module.exports = (client, message, prefix, env) => {
 
         trophyRoleGive(client, message, args);
     }
-}
+}*/

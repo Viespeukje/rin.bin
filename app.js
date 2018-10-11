@@ -10,7 +10,7 @@ const
     commandManager = require('./services/commandManager'), //Run commandManager Functions
     voteManager = require('./services/voteManager'), //Evaluate and run votes
     startupDebug = require('./services/tools/startupDebug'),
-    guildChange = require('./services/tools/guildChange'), //Startup Debug Functions
+    guildChange = require('./services/tools/guildChange') //Startup Debug Functions
     //CPTN TODO possibly delete this checkRoles = require('./services/tools/checkRoles'),
     //reactRoles = require('./services/tools/reactRoles'), // WIP THIS CODE IS INACTIVE.
     //TEMP CHANGE webserver = require('./services/webserver'),//Heroku webserver launch code
@@ -23,8 +23,8 @@ const client = new Discord.Client();
 //Defines the constants expressed in .env file
 //TEMP CHANGES
 const 
-    token = "NDk5NzA0NzY2NDk5MTI3MzA3.DqAK7A.-J6nGiM69I7tXKwJf2iHetkLtIs" //process.env.TOKEN,
-    env = "live" //process.env.ENVIRONMENT,
+    token = "NDk5NzA0NzY2NDk5MTI3MzA3.DqAK7A.-J6nGiM69I7tXKwJf2iHetkLtIs", //process.env.TOKEN,
+    env = "live", //process.env.ENVIRONMENT,
     ownerid = "138760688741908481" //process.env.OWNERID
 
 //Defines the prefix used for all commands.
