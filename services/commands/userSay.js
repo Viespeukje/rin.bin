@@ -1,5 +1,9 @@
 'use strict'
 
+//VERSION 0;
+
+const command = "";
+
 const normal = function (message, args) {
 
     const sayMessage = args.join(" ");  	// To get the "message" itself we join the `args` back into a string with spaces: 
