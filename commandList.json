@@ -1,113 +1,97 @@
 {
-    
-  "help": {
-      "name": "help",
-      "description": "This command will return a help dialogue that explains the commands available to that user with that user's permission level.",
-      "permissions": "isUser"
-  },
-  "givemod": {
-    "name": "givemod",
-    "description": "Gives a user moderator.",
-    "permissions": "isBotOwner"
-},
-  "say": {
-      "name": "say",
-      "description": "This command will cause me to delete your message and repeat it myself.",
-      "permissions": "isBotOwner"
-  },
-  "saycode": {
-      "name": "saycode",
-      "description": "This alternate form of say will put the text in a codebox.",
-      "permissions": "isBotOwner"
-  },
-  "radd": {
-    "name": "radd",
-    "description": "An operator command used to add a role manually. ``+radd @user role``",
-    "permissions": "isOperator"
-  },
-  "rremove": {
-    "name": "rremove",
-    "description": "An operator command used to remove a role manually. ``+rremove @user role``",
-    "permissions": "isOperator"
-  },
-  "opapprove": {
-    "name": "opapprove",
-    "description": "An operator command used to approve a user. ``+opapprove @user gender sexuality``",
-    "permissions": "isOperator"
-  },
-  "opreset": {
-    "name": "opreset",
-    "description": "An operator command used to reset a channel ``+opreset``",
-    "permissions": "isOperator"
-  },
-  "opmute": {
-    "name": "opmute",
-    "description": "An operator command used to mute a user in all conversation channels. Does not include RP channels. ``+opmute @user``",
-    "permissions": "isOperator"
-  },
-  "guidemute": {
-    "name": "guidemute",
-    "description": "This command is used to initiate a guide mute vote. These votes require two votes in favor to pass.",
-    "permissions": "isStaff"
-},
-  "playing": {
-      "name": "playing",
-      "description": "This command will change my 'now playing' message.",
-      "permissions": "isBotOwner"
-  },
-  "aboutgems": {
-      "name": "aboutgems",
-      "description": "This command will cause me to post a primer on how gems on the server work.",
-      "permissions": "isGuide"
-  },
-  "warn": {
-      "name": "warn",
-      "description": "This command is used to warn the first user mentioned after the command. If no users are mentioned, it will fail. If more than one user is mentioned, the link will be generated for the first one only.",
-      "permissions": "isStaff"
-  },
-  "warncount": {
-    "name": "warncount",
-    "description": "This command is used to manually change the number of warnings that a user has been assigned to them in the database. Do not use unless you know what you're doing. Please note it will not change the warnings in the GoogleDocs record in any way.\n\n``[prefix]warn @user #`` ",
-    "permissions": "isStaff"
-},
-  "a": {
-    "name": "a",
-    "description": "This command is an alternate version of the PandoBot command to send an approval dialogue for a user.",
-    "permissions": "isOperator"
-},
-"activelist": {
-    "name": "activelist",
-    "description": "This is a command designed to determine who has the activity level to be a candidate for ranks.",
-    "permissions": "isStaff"
-},
-"trophynew": {
-    "name": "trophynew",
-    "description": "WIP Command. Used to create a new predefined trophy.",
-    "permissions": "isOperator"
-},
-"trophygive": {
-    "name": "trophygive",
-    "description": "WIP Command. Used to give a predefined trophy to a user.",
-    "permissions": "isOperator"
-},
-"trophyabout": {
-    "name": "trophyabout",
-    "description": "WIP Command. Used to give information on a trophy with a given ID.",
-    "permissions": "isOperator"
-},
-"trophies": {
-    "name": "trophies",
-    "description": "Lists all trophies owned by a given user. If no user is given, then the author of the command is used. ``+trophies @user``",
-    "permissions": "isUser"
-},
-"role2trophy": {
-    "name": "role2trophy",
-    "description": "WIP Command. Gives a trophy to all users with a given role.",
-    "permissions": "isOwner"
-},
-  "rolecheck": {
-      "name": "rolecheck",
-      "description": "This command is used to check the permissions of the first user mentioned after the command. If no users are mentioned, it will fail.",
-      "permissions": "isStaff"
-  }
+    "givemod": {
+        "name": "givemod",
+        "description": "Gives a user moderator.",
+        "permissions": "isBotOwner"
+    },
+    "radd": {
+        "name": "radd",
+        "description": "An operator command used to add a role manually. ``+radd @user role``",
+        "permissions": "isOperator"
+    },
+    "rremove": {
+        "name": "rremove",
+        "description": "An operator command used to remove a role manually. ``+rremove @user role``",
+        "permissions": "isOperator"
+    },
+    "opapprove": {
+        "name": "opapprove",
+        "description": "An operator command used to approve a user. ``+opapprove @user gender sexuality``",
+        "permissions": "isOperator"
+    },
+    "opreset": {
+        "name": "opreset",
+        "description": "An operator command used to reset a channel ``+opreset``",
+        "permissions": "isOperator"
+    },
+    "opmute": {
+        "name": "opmute",
+        "description": "An operator command used to mute a user in all conversation channels. Does not include RP channels. ``+opmute @user``",
+        "permissions": "isOperator"
+    },
+    "guidemute": {
+        "name": "guidemute",
+        "description": "This command is used to initiate a guide mute vote. These votes require two votes in favor to pass.",
+        "permissions": "isStaff"
+    },
+    "playing": {
+        "name": "playing",
+        "description": "This command will change my 'now playing' message.",
+        "permissions": "isBotOwner"
+    },
+    "aboutgems": {
+        "name": "aboutgems",
+        "description": "This command will cause me to post a primer on how gems on the server work.",
+        "permissions": "isGuide"
+    },
+    "warn": {
+        "name": "warn",
+        "description": "This command is used to warn the first user mentioned after the command. If no users are mentioned, it will fail. If more than one user is mentioned, the link will be generated for the first one only.",
+        "permissions": "isStaff"
+    },
+    "warncount": {
+        "name": "warncount",
+        "description": "This command is used to manually change the number of warnings that a user has been assigned to them in the database. Do not use unless you know what you're doing. Please note it will not change the warnings in the GoogleDocs record in any way.\n\n``[prefix]warn @user #`` ",
+        "permissions": "isStaff"
+    },
+    "a": {
+        "name": "a",
+        "description": "This command is an alternate version of the PandoBot command to send an approval dialogue for a user.",
+        "permissions": "isOperator"
+    },
+    "activelist": {
+        "name": "activelist",
+        "description": "This is a command designed to determine who has the activity level to be a candidate for ranks.",
+        "permissions": "isStaff"
+    },
+    "trophynew": {
+        "name": "trophynew",
+        "description": "WIP Command. Used to create a new predefined trophy.",
+        "permissions": "isOperator"
+    },
+    "trophygive": {
+        "name": "trophygive",
+        "description": "WIP Command. Used to give a predefined trophy to a user.",
+        "permissions": "isOperator"
+    },
+    "trophyabout": {
+        "name": "trophyabout",
+        "description": "WIP Command. Used to give information on a trophy with a given ID.",
+        "permissions": "isOperator"
+    },
+    "trophies": {
+        "name": "trophies",
+        "description": "Lists all trophies owned by a given user. If no user is given, then the author of the command is used. ``+trophies @user``",
+        "permissions": "isUser"
+    },
+    "role2trophy": {
+        "name": "role2trophy",
+        "description": "WIP Command. Gives a trophy to all users with a given role.",
+        "permissions": "isOwner"
+    },
+    "rolecheck": {
+        "name": "rolecheck",
+        "description": "This command is used to check the permissions of the first user mentioned after the command. If no users are mentioned, it will fail.",
+        "permissions": "isStaff"
+    }
 }
