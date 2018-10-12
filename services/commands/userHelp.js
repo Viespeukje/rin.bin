@@ -1,27 +1,56 @@
 'use strict'
 
-const 
+//VERSION 1
+
+//String variable. For instance "say" for command "/say"
+const command = "help"; 
+//String variable. ex "isUser"
+const permissions = "isUser";
+//Whether or not the commandmanager should run this command
+const enabled = true;
+//Help text string
+const help = "This command will return a help dialogue that explains the commands available to that user with that user's permission level.";
+
+const
     Discord = require("discord.js"),
-    commandList = require('../../commandList'),
+    commandList = require('../commandManager'),
     checkRoles = require('../tools/checkRoles')
 
-module.exports = (client, message, prefix) => {
+const run = function (params, message, args) {
 
-  const embed = new Discord.RichEmbed()
+    const commands = commandList.commandlist;
+
+    var client = params.client;
+    var prefix = params.prefix;
+
+    const embed = new Discord.RichEmbed()
         .setAuthor(client.user.username, client.user.avatarURL)
         .setColor(15844367)
         .setTitle("Hello! I'm Rin.bin!")
         .setDescription(`I am Rin's attempt at a chat bot and a project to learn some NodeJS. Please bear in mind that I'm still very much a work in progress, but both of us are doing our best. Based on your permissions, you are able to use the following commands...`)
         .setFooter("I've been a good girl, right..?", client.user.avatarURL);
 
-    Object.keys(commandList).forEach(key => {
-        let permlevel = commandList[key].permissions;
+    Object.keys(commands).forEach(key => {
+        let permlevel = commands[key].permissions;
 
-        if(!checkRoles[permlevel](message.member)) return;
-        else embed.addField(prefix + commandList[key].name, commandList[key].description);
+        if (!checkRoles[permlevel](message.member)) return;
+        else embed.addField(prefix + commands[key].command, commands[key].help);
     });
 
-    message.author.send({embed}).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Direct message send failed to user ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
+    message.author.send({ embed }).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Direct message send failed to user ${message.author.username}#${message.author.discriminator}. \n>>${err}`));
+}
+
+//Called if you need to initialize a command
+const init = undefined
+
+
+module.exports = {
+    command: command,
+    permissions: permissions,
+    enabled: enabled,
+    help: help,
+    run: run,
+    init: init
 }
 
 // POSSIBLE COLORS IN DISCORD

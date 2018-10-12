@@ -5,7 +5,7 @@
 const command = "codesay";
 const permissions = "isBotOwner";
 const enabled = true;
-const help = "This command will cause me to delete your message and repeat it myself.";
+const help = "This alternate form of say will put the text in a codebox.";
 
 const run = function (params, message, args) {
 

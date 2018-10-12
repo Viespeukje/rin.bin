@@ -1,6 +1,7 @@
 'use strict'
 
 const commandlist = new Array();
+const commandPermissions = require('./commandPermissions');
 
 /*const 
     checkRoles = require('./tools/checkRoles'),
@@ -29,10 +30,17 @@ const commandlist = new Array();
     */
 
 const init = function (){
-    console.log("Adding commands to the command manager");
-    commandlist.push(require('./commands/userSay'));
-    commandlist.push(require('./commands/userCodeSay'));
+    console.log("Adding commands to the command manager... You did make sure to register your new commands, right?");
+
+    addCommand(require('./commands/userHelp'));
+    addCommand(require('./commands/userSay'));
+    addCommand(require('./commands/userCodeSay'));
+    
     console.log("Added " + commandlist.length + " commands!");
+}
+
+const addCommand = function(cmd){
+    commandlist.push(cmd);
 }
 
 const onMessage = (client, message, prefix, env) => {
@@ -61,7 +69,8 @@ const onMessage = (client, message, prefix, env) => {
 
     const params = {
         client: client,
-        env: env
+        env: env,
+        prefix: prefix
     }
    
     if(!message.member) return;   //Any command that runs a role check MUST be below this line.
@@ -71,8 +80,15 @@ const onMessage = (client, message, prefix, env) => {
 
     //Loop through the commands and if they're not disabled, run them. If you run a command return because any command beyond that point is the wrong one.
     for (var i = 0; i < commandlist.length; i++){
+        //First find the command, only checking enabled commands.
         if (commandlist[i].enabled && commandlist[i].command == command){
-            commandlist[i].run(params, message, args);
+            //Great. We found the command. Now make sure we have permissions.
+            if(commandPermissions(message.member, commandlist[i].permissions)){
+                commandlist[i].run(params, message, args);
+            } else {
+                //If you want to log invalid use of a command people shouldn't have, do it here.
+            }
+            
             return;
         }
     }

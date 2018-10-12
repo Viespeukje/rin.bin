@@ -1,5 +1,13 @@
 //VERSION -This is the revision of the command. Cptn put this here so he can tell if he updated a command already.
 
+/*----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+------IF YOU DON'T REGISTER THIS IT WON'T WORK. REGISTER IT. PLEASE GOD.------
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+-----------------------------------------------------------------------------*/
+
 //String variable. For instance "say" for command "/say"
 const command = null; 
 //String variable. ex "isUser"
@@ -19,6 +27,7 @@ const run = function (params, message, args) {
 params = {
     client: the discord client
     env: the enviroment
+    prefix: previx the bot is using
 }
 
 */
