@@ -1,9 +1,17 @@
 //VERSION -This is the revision of the command. Cptn put this here so he can tell if he updated a command already.
 
+/*----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+------IF YOU DON'T REGISTER THIS IT WON'T WORK. REGISTER IT. PLEASE GOD.------
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+-----------------------------------------------------------------------------*/
+
 //String variable. For instance "say" for command "/say"
 const command = null; 
 //String variable. ex "isUser"
-const permissions = null
+const permissions = null;
 //Whether or not the commandmanager should run this command
 const enabled = false;
 //Help text string
@@ -19,20 +27,20 @@ const run = function (params, message, args) {
 params = {
     client: the discord client
     env: the enviroment
+    prefix: previx the bot is using
 }
 
 */
 
-//A function for logging. Called immediately after Run if not undefined
-const log = function(params, message, args) {
+//Called if you need to initialize a command
+const init = undefined
 
-}
-
-//Send information you need to initialize under ini. Called when registered.
-const init = function(ini){
-
-}
 
 module.exports = {
-
+    command: command,
+    permissions: permissions,
+    enabled: enabled,
+    help: help,
+    run: run,
+    init: init
 }

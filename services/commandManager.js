@@ -35,6 +35,7 @@ const init = function (){
     addCommand(require('./commands/userHelp'));
     addCommand(require('./commands/userSay'));
     addCommand(require('./commands/userCodeSay'));
+    addCommand(require('./commands/userPlaying'));
     
     console.log("Added " + commandlist.length + " commands!");
 }
@@ -44,7 +45,8 @@ const addCommand = function(cmd){
 }
 
 const onMessage = (client, message, prefix, env) => {
-    
+
+
     if(message.author.bot) return; //Any bot inputs below this line will be ignored.
 
     /*TEMP CHANGE
@@ -88,7 +90,7 @@ const onMessage = (client, message, prefix, env) => {
             } else {
                 //If you want to log invalid use of a command people shouldn't have, do it here.
             }
-            
+            message.delete();
             return;
         }
     }
@@ -161,12 +163,6 @@ module.exports = {
         if(!commandPermissions(message.member, command)) return;
 
         operatorReset(client, message);
-    }
-
-    if(command === "playing") {
-        if(!commandPermissions(message.member, command)) return;
-
-        userPlaying(client, args);
     }
 
     if(command === "a") {

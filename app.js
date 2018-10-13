@@ -23,7 +23,7 @@ const client = new Discord.Client();
 //Defines the constants expressed in .env file
 //TEMP CHANGES
 const 
-    token = "NDk5NzA0NzY2NDk5MTI3MzA3.DqAK7A.-J6nGiM69I7tXKwJf2iHetkLtIs", //process.env.TOKEN,
+    token = "NTAwNzkyODg5MDU2NTU5MTM1.DqP_TQ.aQqCuN0ANwxr-5rWqPNoAK7zXtQ", //process.env.TOKEN,
     env = "live", //process.env.ENVIRONMENT,
     ownerid = "138760688741908481" //process.env.OWNERID
 
