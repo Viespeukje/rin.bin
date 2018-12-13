@@ -109,5 +109,15 @@
       "name": "rolecheck",
       "description": "This command is used to check the permissions of the first user mentioned after the command. If no users are mentioned, it will fail.",
       "permissions": "isStaff"
-  }
+  },
+  "iam": {
+    "name": "iam",
+    "description": "This command is for users to assign certain roles to themselves.",
+    "permissions": "isUser"
+},
+"iamnot": {
+    "name": "iamnot",
+    "description": "This command is for users to remove certain roles from themselves.",
+    "permissions": "isUser"
+}
 }

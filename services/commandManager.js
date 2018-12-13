@@ -21,6 +21,8 @@ const
     trophyList = require('./commands/trophyList'),
     trophyRoleGive = require('./commands/trophyRoleGive'),
     userSay = require('./commands/userSay'),
+    userRoleAdd = require('./commands/userRoleAdd'),
+    userRoleRemove = require('./commands/userRoleRemove'),
     userWarn = require('./commands/userWarn'),
     checkSpam = require('./tools/checkSpam'),
     userWarnCount = require('./commands/userWarnCount')
@@ -89,6 +91,16 @@ module.exports = (client, message, prefix, env) => {
         if(!commandPermissions(message.member, command)) return;
 
         operatorRoleAdd(client, message, args);
+    }
+    if(command === "iam") {
+        if(!commandPermissions(message.member, command)) return;
+
+        userRoleAdd(client, message, args);
+    }
+    if(command === "iamnot") {
+        if(!commandPermissions(message.member, command)) return;
+
+        userRoleRemove(client, message, args);
     }
     if(command === "rremove") {
         if(!commandPermissions(message.member, command)) return;
