@@ -120,7 +120,7 @@ module.exports = (client, message, prefix, env) => {
         operatorMute(client, message);
     }
 
-    if(command === "opreset") {
+    if(command === "r") {
         if(!commandPermissions(message.member, command)) return;
 
         operatorReset(client, message);

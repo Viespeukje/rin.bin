@@ -35,9 +35,9 @@
     "description": "An operator command used to approve a user. ``+opapprove @user gender sexuality``",
     "permissions": "isOperator"
   },
-  "opreset": {
-    "name": "opreset",
-    "description": "An operator command used to reset a channel ``+opreset``",
+  "r": {
+    "name": "r",
+    "description": "An operator command used to reset a channel ``+r``",
     "permissions": "isOperator"
   },
   "opmute": {
