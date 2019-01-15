@@ -63,8 +63,8 @@ client.on("message", message => {
 });
 
 client.on('guildMemberAdd', member => {
-    //This is a line of code that duplicates pandobot's welcome message.
-    //member.guild.channels.get('279584314856046592').send(`Welcome to the Kinkdom, ${member}! To get started, please read the <#279597756887203840> and submit an introduction by following the instructions in <#280313739235033088>. Once approved by a staff member, you'll be able to access more channels. If you have any questions on how to get started, please feel free to ask in main chat or DM one of our Operators in the member list!`); 
+    if (!checkRoles.isDeputy(member.guild.members.get("396062330397523968"))) return;
+    member.guild.channels.get('279584314856046592').send(`Welcome to the Kinkdom, ${member}! To get started, please read the <#279597756887203840> and submit an introduction by following the instructions in <#280313739235033088>. Once approved by a staff member, you'll be able to access more channels. If you have any questions on how to get started, please feel free to ask in main chat or DM one of our Operators in the member list!`); 
 });
 
 //This event triggers when a reaction is added
