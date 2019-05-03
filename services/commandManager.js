@@ -136,7 +136,7 @@ module.exports = (client, message, prefix, env) => {
         //if(message.guild.id != "279584314856046592") return;
         if(!commandPermissions(message.member, command)) return;
 
-        userApprove(message);
+        userApprove(client, message);
     }
 
     if(command === "say") {

@@ -1,6 +1,9 @@
 'use strict'
 
-module.exports = (message) => {
+const
+    Discord = require("discord.js")
+
+module.exports = (client, message) => {
 
     //Establishes mentioned user
     var member = message.mentions.users.first();
