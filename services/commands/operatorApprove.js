@@ -45,13 +45,13 @@ console.log(unchartedrole);
 
     //Logging Dialogue
     const embed = new Discord.RichEmbed()
-        .addField(`Approve`, `Operator <@${message.author.id}> approved user <@${member.id}> .`)
-        .setColor(3066993)
-        .setTimestamp()
-        .setFooter("I've been a good girl, right..?", client.user.avatarURL);
+            .addField(`Approval`, `<@${message.author.id}> approved user <@${member.id}> .`)
+            .setColor(4886754)
+            .setTimestamp()
+            .setFooter("I made a new friend! <3", client.user.avatarURL);
 
-    message.guild.channels.find("name", "operator_logs").send({embed}).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Tried to post an operator approve. \n>>${err}`));
-
+        message.guild.channels.find("name", "operator_logs").send({embed}).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Tried to post an approval log. \n>>${err}`));
+   
     //Add the roles
     member.addRoles(AssignedRoles).then(member.removeRole(unchartedrole).catch(console.error));
 
