@@ -23,7 +23,7 @@ module.exports = (client, message, args) => {
         member.addRoles(message.guild.roles.find("name", args[1]));
 
         const embed = new Discord.RichEmbed()
-            .addField(`Manual Role Add`, `Operator <@${message.author.id}> added role ${args[1]} to user <@${member.id}> .`)
+            .addField(`Manual Role Add`, `<@${message.author.id}> added role ${args[1]} to user <@${member.id}> .`)
             .setColor(3066993)
             .setTimestamp()
             .setFooter("I've been a good girl, right..?", client.user.avatarURL);

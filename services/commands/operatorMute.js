@@ -20,7 +20,7 @@ module.exports = (client, message) => {
 
     //console.log(message.id)
     const embed = new Discord.RichEmbed()
-        .addField(`Operator Mute`, `Operator <@${message.author.id}> muted user <@${member.id}> .`)
+        .addField(`Mute`, `<@${message.author.id}> muted user <@${member.id}> .`)
         .setColor(15158332)
         .setTimestamp()
         .setFooter("I've been a good girl, right..?", client.user.avatarURL);

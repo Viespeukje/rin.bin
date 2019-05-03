@@ -23,7 +23,7 @@ module.exports = (client, message, args) => {
         member.removeRole(message.guild.roles.find("name", args[1])).catch(err => console.log("\x1b[31m%s\x1b[0m", `ERROR: Tried to remove a role. \n>>${err}`));
 
         const embed = new Discord.RichEmbed()
-            .addField(`Manual Role Removal`, `Operator <@${message.author.id}> removed role ${args[1]} from user <@${member.id}> .`)
+            .addField(`Manual Role Removal`, `<@${message.author.id}> removed role ${args[1]} from user <@${member.id}> .`)
             .setColor(15105570)
             .setTimestamp()
             .setFooter("I've been a good girl, right..?", client.user.avatarURL);
