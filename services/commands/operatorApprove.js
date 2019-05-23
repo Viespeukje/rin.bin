@@ -5,7 +5,7 @@ const
     checkRoles = require('../tools/checkRoles')
 
 //List of assignable roles
-const AllowedRoles = ["Trans", "Male", "Female", "Femboy", "Trap", "Nonbinary", "Genderfluid", "Futa", "Straight", "Bisexual", "Bicurious", "Gay", "Lesbian", "Asexual", "Pansexual", "Dom", "Sub", "Switch"]
+const AllowedRoles = ["Butch", "Tomboy", "Trans", "Male", "Female", "Femboy", "Trap", "Nonbinary", "Genderfluid", "Futa", "Straight", "Bisexual", "Bicurious", "Gay", "Lesbian", "Asexual", "Pansexual", "Dom", "Sub", "Switch"]
 var AssignedRoles = []
 
 module.exports = async (client, message, args) => {
