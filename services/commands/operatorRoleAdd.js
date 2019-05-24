@@ -4,7 +4,7 @@ const
     Discord = require("discord.js"),
     checkRoles = require('../tools/checkRoles')
 
-const AllowedRoles = ["Uncharted", "Male", "Female", "Femboy", "Trap", "Nonbinary", "Genderfluid", "Trans", "Futa", "Straight", "Bisexual", "Bicurious", "Gay", "Lesbian", "Asexual", "Pansexual", "Kinkster", "Innocent", "Dom", "Sub", "Switch", "F", "D", "NH", "K", "Porn", "Events", "RPG"]
+const AllowedRoles = ["Butch", "Tomboy", "Uncharted", "Male", "Female", "Femboy", "Trap", "Nonbinary", "Genderfluid", "Trans", "Futa", "Straight", "Bisexual", "Bicurious", "Gay", "Lesbian", "Asexual", "Pansexual", "Kinkster", "Innocent", "Dom", "Sub", "Switch", "F", "D", "NH", "K", "Porn", "Events", "RPG"]
 const AssignedRoles = []
 
 module.exports = (client, message, args) => {
